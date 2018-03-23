@@ -3,14 +3,57 @@
 
 <head>
   <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
   <title>The Vibe</title>
+  <!-- Bootswatch.com CSS file link -->
+  <link href="https://bootswatch.com/3/cerulean/bootstrap.min.css" rel="stylesheet">
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script defer src="main.js" charset="utf-8"></script>
 </head>
 
 <body>
-  <p id="test-p">Testing Vibes</p>
-  <button id="test-button" type="button" name="button">Click Me!</button>
+
+  <div class="container">
+    <h1 id="test-p">Testing Vibes
+      <small>where people connect</small>
+    </h1>
+
+    <!-- <div class="row">
+      <div class="col-4">
+        <img id="avatar-1" class="avatar rounded img-fluid" src="http://placehold.it/276x276?text=User+1" alt="">
+      </div> -->
+    <!-- TESTER BUTTON TO GET USER DATA -->
+    <!-- <button id="test-button" type="button" name="button" class="btn btn-warning">Click Me to Get User(s)</button> -->
+    <!-- <div class="col-8">
+        <p>Name:</p>
+        <p>Location:</p>
+        <p>Bio:</p>
+        <p>Interests:</p>
+      </div> -->
+    <div class="row">
+      <div class="col-md-3">
+        <img id="avatar-1" class="avatar rounded img-fluid" src="http://placehold.it/276x276?text=User+1" alt="">
+      </div>
+      <div class="col-md-9">
+        <p>Name:</p>
+        <p>Location:</p>
+        <p>Bio:</p>
+        <p>Interests:</p>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <!-- Bootstrap CDN -->
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+    crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="main.js"></script>
 </body>
 
 </html>
