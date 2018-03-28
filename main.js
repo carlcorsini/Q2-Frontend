@@ -7,6 +7,11 @@ document.addEventListener("DOMContentLoaded", function (event) {
   const friends = document.querySelector('#friends')
   const bio = document.querySelector('#bio')
   const interests = document.querySelector('#interests')
+  const images = document.querySelectorAll('.card-img-top')
+  console.log(images);
+
+  //Get user data
+
   axios.get(`${baseURL}/vibe/${stashedVariable}`)
     .then(response => {
       // console.log(result);
@@ -28,8 +33,21 @@ document.addEventListener("DOMContentLoaded", function (event) {
       interests.innerHTML = `
         ${response.data.result[0].interests}
       `
-
     })
+
+  // Get images for user
+
+  axios.get(`${baseURL}/vibe/images/${stashedVariable}`)
+    .then(response => {
+      let imageUrls = response.data.result
+      images.forEach((a, idx) => {
+        if (imageUrls[idx] !== undefined)
+          a.src = imageUrls[idx].image_url
+        else
+          a.src = 'http://via.placeholder.com/275x275'
+      })
+    })
+
 });
 
 
