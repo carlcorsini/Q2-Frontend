@@ -1,11 +1,34 @@
-const baseURL = 'http://localhost:3000'
+let baseURL = 'http://localhost:3000'
+let stashedVariable = 3
 document.addEventListener("DOMContentLoaded", function(event) {
-  const container = document.querySelector('#test-p')
-  axios.get(`${baseURL}/vibe`)
-    .then(result => {
-      container.innerHTML = `
-        <code>${result.data.users[0].name}</code>
+  const userName = document.querySelector('#user-name')
+  const profPic = document.querySelector('#profile-pic')
+  const location = document.querySelector('#location')
+  const friends = document.querySelector('#friends')
+  const bio = document.querySelector('#bio')
+  const interests = document.querySelector('#interests')
+  axios.get(`${baseURL}/vibe/${stashedVariable}`)
+    .then(response => {
+      // console.log(result);
+      userName.innerHTML = `
+        ${response.data.result[0].name}
       `
+      profPic.src = `
+        ${response.data.result[0].profile_pic}
+      `
+      location.innerHTML = `
+        ${response.data.result[0].location}
+      `
+      friends.innerHTML = `
+        ${response.data.result[0].friends.length} Friends
+      `
+      bio.innerHTML = `
+        ${response.data.result[0].bio}
+      `
+      interests.innerHTML = `
+        ${response.data.result[0].interests}
+      `
+
     })
 });
 

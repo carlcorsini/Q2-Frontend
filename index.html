@@ -9,8 +9,7 @@
   <title>The Vibe</title>
 
   <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-    crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
   <!-- script files -->
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
@@ -22,8 +21,7 @@
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <div class="container">
       <a class="navbar-brand order-1 mr-0" href="#" target="_blank">The Vibe</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
-        aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
@@ -55,14 +53,13 @@
   <div class="container">
     <div id="profile" class="row">
       <div class="col-md-4">
-        <img id="avatar-1" class="avatar rounded img-fluid" src="https://images.pexels.com/photos/45201/kitty-cat-kitten-pet-45201.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
-          alt="">
+        <img id="profile-pic" class="avatar rounded img-fluid" src="https://images.pexels.com/photos/45201/kitty-cat-kitten-pet-45201.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="">
       </div>
       <div class="col-md-8">
-        <h4 class="display-4 mt-5">User Name</h4>
-        <p class="lead">Location</p>
+        <h4 id="user-name" class="display-4 mt-5">User Name</h4>
+        <p id="location" class="lead">Location</p>
         <div class="btn-group mt-4" role="group" aria-label="Callout buttons">
-          <button type="button" class="btn btn-light btn-sm" data-target="#friends">## Friends</button>
+          <button id="friends" type="button" class="btn btn-light btn-sm" data-target="#friends">## Friends</button>
           <a class="btn btn-light btn-sm" href="#following">## Following</a>
         </div>
       </div>
@@ -70,23 +67,17 @@
     <div class="row">
       <div class="col-lg-12">
         <h5 class="display-5 mt-5">Bio</h5>
-        <p>Lorem ipsum dolor amet distillery direct trade YOLO gastropub wayfarers sartorial vexillologist intelligentsia neutra
-          gochujang fam echo park. Gochujang single-origin coffee letterpress franzen sustainable man braid. Master cleanse
-          kinfolk tbh raclette XOXO aesthetic kickstarter church-key keytar bicycle rights cred disrupt direct trade sriracha
-          next level. Copper mug bitters slow-carb affogato stumptown farm-to-table, put a bird on it thundercats tbh selfies
-          literally four loko polaroid +1. Schlitz shaman marfa cray. Deep v fam distillery flannel. Disrupt craft beer cred
-          pork belly chartreuse authentic kombucha kinfolk fixie bitters.</p>
+        <p id="bio">Lorem ipsum dolor amet distillery direct trade YOLO gastropub wayfarers sartorial vexillologist intelligentsia neutra gochujang fam echo park. Gochujang single-origin coffee letterpress franzen sustainable man braid. Master cleanse kinfolk tbh
+          raclette XOXO aesthetic kickstarter church-key keytar bicycle rights cred disrupt direct trade sriracha next level. Copper mug bitters slow-carb affogato stumptown farm-to-table, put a bird on it thundercats tbh selfies literally four loko polaroid
+          +1. Schlitz shaman marfa cray. Deep v fam distillery flannel. Disrupt craft beer cred pork belly chartreuse authentic kombucha kinfolk fixie bitters.</p>
       </div>
     </div>
     <div class="row">
       <div class="col-lg-12">
-        <h5 class="display-5 mt-3">Hobbies</h5>
-        <p>Lorem ipsum dolor amet distillery direct trade YOLO gastropub wayfarers sartorial vexillologist intelligentsia neutra
-          gochujang fam echo park. Gochujang single-origin coffee letterpress franzen sustainable man braid. Master cleanse
-          kinfolk tbh raclette XOXO aesthetic kickstarter church-key keytar bicycle rights cred disrupt direct trade sriracha
-          next level. Copper mug bitters slow-carb affogato stumptown farm-to-table, put a bird on it thundercats tbh selfies
-          literally four loko polaroid +1. Schlitz shaman marfa cray. Deep v fam distillery flannel. Disrupt craft beer cred
-          pork belly chartreuse authentic kombucha kinfolk fixie bitters.</p>
+        <h5 class="display-5 mt-3">Interests</h5>
+        <p id="interests">Lorem ipsum dolor amet distillery direct trade YOLO gastropub wayfarers sartorial vexillologist intelligentsia neutra gochujang fam echo park. Gochujang single-origin coffee letterpress franzen sustainable man braid. Master cleanse kinfolk tbh
+          raclette XOXO aesthetic kickstarter church-key keytar bicycle rights cred disrupt direct trade sriracha next level. Copper mug bitters slow-carb affogato stumptown farm-to-table, put a bird on it thundercats tbh selfies literally four loko polaroid
+          +1. Schlitz shaman marfa cray. Deep v fam distillery flannel. Disrupt craft beer cred pork belly chartreuse authentic kombucha kinfolk fixie bitters.</p>
       </div>
     </div>
     <div class="row">
@@ -98,8 +89,7 @@
               <img class="card-img-top" src="https://farm3.staticflickr.com/2888/33038677584_8f3755dd1c_k.jpg" alt="media">
               <div class="card-body">
                 <h4 class="card-title">Image Title</h4>
-                <p class="card-text">Lorem ipsum dolor amet distillery direct trade YOLO gastropub wayfarers sartorial vexillologist intelligentsia
-                  neutra gochujang fam echo park.</p>
+                <p class="card-text">Lorem ipsum dolor amet distillery direct trade YOLO gastropub wayfarers sartorial vexillologist intelligentsia neutra gochujang fam echo park.</p>
               </div>
             </div>
           </div>
@@ -108,8 +98,7 @@
               <img class="card-img-top" src="https://farm3.staticflickr.com/2888/33038677584_8f3755dd1c_k.jpg" alt="media">
               <div class="card-body">
                 <h4 class="card-title">Image Title</h4>
-                <p class="card-text">Lorem ipsum dolor amet distillery direct trade YOLO gastropub wayfarers sartorial vexillologist intelligentsia
-                  neutra gochujang fam echo park.</p>
+                <p class="card-text">Lorem ipsum dolor amet distillery direct trade YOLO gastropub wayfarers sartorial vexillologist intelligentsia neutra gochujang fam echo park.</p>
               </div>
             </div>
           </div>
@@ -118,8 +107,7 @@
               <img class="card-img-top" src="https://farm3.staticflickr.com/2888/33038677584_8f3755dd1c_k.jpg" alt="media">
               <div class="card-body">
                 <h4 class="card-title">Image Title</h4>
-                <p class="card-text">Lorem ipsum dolor amet distillery direct trade YOLO gastropub wayfarers sartorial vexillologist intelligentsia
-                  neutra gochujang fam echo park.</p>
+                <p class="card-text">Lorem ipsum dolor amet distillery direct trade YOLO gastropub wayfarers sartorial vexillologist intelligentsia neutra gochujang fam echo park.</p>
               </div>
             </div>
           </div>
@@ -129,12 +117,9 @@
 
       <!-- Optional JavaScript -->
       <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
       <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
       <script src="main.js"></script>
 </body>
