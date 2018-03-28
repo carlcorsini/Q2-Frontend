@@ -1,6 +1,6 @@
 let baseURL = 'http://localhost:3000'
 let stashedVariable = 3
-document.addEventListener("DOMContentLoaded", function(event) {
+document.addEventListener("DOMContentLoaded", function (event) {
   const userName = document.querySelector('#user-name')
   const profPic = document.querySelector('#profile-pic')
   const location = document.querySelector('#location')
