@@ -1,6 +1,8 @@
 let baseURL = 'http://localhost:3000'
-let stashedVariable = 3
-document.addEventListener("DOMContentLoaded", function (event) {
+
+let stashedVariable = 2
+document.addEventListener("DOMContentLoaded", function(event) {
+
   const userName = document.querySelector('#user-name')
   const profPic = document.querySelector('#profile-pic')
   const location = document.querySelector('#location')
@@ -8,6 +10,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
   const bio = document.querySelector('#bio')
   const interests = document.querySelector('#interests')
   const images = document.querySelectorAll('.card-img-top')
+  const imageTitle = document.querySelectorAll('.card-title')
+  const imageText = document.querySelectorAll('.card-text')
   console.log(images);
 
   //Get user data
@@ -39,15 +43,44 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
   axios.get(`${baseURL}/vibe/images/${stashedVariable}`)
     .then(response => {
-      let imageUrls = response.data.result
+      let imageArray = response.data.result
       images.forEach((a, idx) => {
-        if (imageUrls[idx] !== undefined)
-          a.src = imageUrls[idx].image_url
+        if (imageArray[idx] !== undefined)
+          a.src = imageArray[idx].image_url
+
         else
           a.src = 'http://via.placeholder.com/275x275'
       })
+      imageTitle.forEach((a, idx) => {
+        if (imageArray[idx] !== undefined) {
+          a.innerHTML = imageArray[idx].title
+          console.log(imageArray[idx].title);
+        } else
+          a.innerHTML = 'placeholder'
+      })
+      imageText.forEach((a, idx) => {
+        if (imageArray[idx] !== undefined)
+          a.innerHTML = imageArray[idx].description
+
+        else
+          a.innerHTML = 'placeholder'
+      })
     })
 
+  // get user friends
+
+  axios.get(`${baseURL}/vibe/friends/${stashedVariable}`)
+    .then(response => {
+      let friends = response.data.result[0].friends
+      // console.log(friends);
+      let friendsPics = []
+      friends.forEach(a => {
+        axios.get(`${baseURL}/vibe/${a}`).then(response => {
+          friendsPics.push(response.data.result[0].profile_pic)
+        })
+      })
+      // console.log(friendsPics);
+    })
 });
 
 
