@@ -1,5 +1,5 @@
 let baseURL = 'http://localhost:3000'
-let stashedVariable = 1
+let stashedVariable = 4
 document.addEventListener("DOMContentLoaded", function (event) {
 
   const userName = document.querySelector('#user-name')
