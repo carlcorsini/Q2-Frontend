@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   const images = document.querySelectorAll('.card-img-top')
   const imageTitle = document.querySelectorAll('.card-title')
   const imageText = document.querySelectorAll('.card-text')
+  const friendsPics = document.querySelectorAll('.friends-pics')
   console.log(images);
 
   //Get user data
@@ -73,13 +74,16 @@ document.addEventListener("DOMContentLoaded", function(event) {
     .then(response => {
       let friends = response.data.result[0].friends
       // console.log(friends);
-      let friendsPics = []
+      let friendsPicsArray = []
       friends.forEach(a => {
         axios.get(`${baseURL}/vibe/${a}`).then(response => {
-          friendsPics.push(response.data.result[0].profile_pic)
+          friendsPicsArray.push(response.data.result[0].profile_pic)
+          friendsPics.forEach((a, idx) => {
+            a.src = friendsPicsArray[idx]
+          })
         })
       })
-      // console.log(friendsPics);
+      // console.log(friendsPicsArray);
     })
 });
 
