@@ -1,6 +1,6 @@
 let baseURL = 'http://localhost:3000'
 
-let stashedVariable = 2
+let stashedVariable = 1
 document.addEventListener("DOMContentLoaded", function(event) {
 
   const userName = document.querySelector('#user-name')
@@ -79,7 +79,11 @@ document.addEventListener("DOMContentLoaded", function(event) {
         axios.get(`${baseURL}/vibe/${a}`).then(response => {
           friendsPicsArray.push(response.data.result[0].profile_pic)
           friendsPics.forEach((a, idx) => {
-            a.src = friendsPicsArray[idx]
+            if (friendsPicsArray[idx] !== undefined)
+              a.src = friendsPicsArray[idx]
+
+            else
+              a.src = ''
           })
         })
       })
