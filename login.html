@@ -15,6 +15,7 @@
 
   <!-- script files -->
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="assets/index.js"></script>
 </head>
 
 <body>
@@ -23,23 +24,23 @@
 
     <a class="navbar-brand" href="#" target="_blank">The Vibe</a>
     <!-- login form -->
-    <form class="navbar-brand order-1 mr-0">
+    <form action="index.html" method="get" class="navbar-brand order-1 mr-0">
       <div class="form-row">
         <!-- Email login -->
         <div class="col-sm-5 my-1">
           <label class="sr-only" for="inputemail">email</label>
-          <input type="email" class="form-control" id="inlineFormInputName" placeholder="email">
+          <input name="email" id="email-login" type="email" class="form-control" placeholder="email">
         </div>
         <!-- Password login -->
         <div class="col-sm-5 my-1">
           <label class="sr-only" for="inputpassword">password</label>
           <div class="input-group">
-            <input type="password" class="form-control" id="inputpassword" placeholder="password">
+            <input name="password" id="password-login" type="password" class="form-control" placeholder="password">
           </div>
         </div>
         <!-- Button Login -->
         <div class="col-auto my-1">
-          <button id="login-submit" type="submit" class="btn btn-secondary" value="submit" onclick="return empty()">Log In</button>
+          <button id="login-submit" type="submit" class="btn btn-secondary" value="submit">Log In</button>
         </div>
       </div>
     </form>
@@ -80,7 +81,7 @@
 
             <!-- Modal body -->
             <div class="modal-body">
-              <form>
+              <form action="index.html" method="get">
                 <div class="row">
                   <!-- First Name -->
                   <div class="col-md-6">
@@ -103,7 +104,7 @@
                 <!-- Birthday -->
                 <div class="form-group col-md-12">
                   <label for="birthday">Birthday</label>
-                  <input class="form-control" type="date" value="data-target" id="example-date-input">
+                  <input class="form-control" type="date" id="example-date-input">
                 </div>
                 <!-- Email -->
                 <div class="form-group col-md-12">
@@ -121,7 +122,7 @@
 
                 <div class="modal-body">
 
-                  <button id="create-submit" type="submit" class="btn btn-primary" value="submit" onclick="return empty()">Submit</button>
+                  <button id="create-submit" type="submit" class="btn btn-primary" value="submit">Submit</button>
                 </div>
 
               </form>
@@ -132,7 +133,7 @@
       </div>
     </div>
   </div>
-
+  <script language="javasript"></script>
   <!-- /jumbotron -->
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
