@@ -3,16 +3,22 @@ let query = window.location.search
 let email = query.replace('?email=', '').replace('%40', '@').split('&').shift()
 let password = query.split('&').pop().replace('password=', '')
 let stashedVariable;
+
 document.addEventListener("DOMContentLoaded", (event) => {
   axios.get(`${baseURL}/vibe`).then(response => {
     let users = response.data.users
     users.forEach(a => {
-      if (a.email === email && a.password === password)
+      if (a.email === email && a.password === password) {
         stashedVariable = a.id
+      }
+      localStorage.setItem('user-id', JSON.stringify(stashedVariable))
+      localStorage.setItem('logged-in', JSON.stringify('yes'))
     })
     if (stashedVariable == undefined) {
       // alert('user not found')
       window.location.replace('login.html')
+      // localStorage.setItem('logged-in', JSON.stringify('no'))
+      // localStorage.setItem('user-id', JSON.stringify(''))
     }
     // console.log(stashedVariable);
     const userName = document.querySelector('#user-name')
@@ -99,18 +105,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
             })
           })
         })
-        // console.log(friendsPicsArray);
       })
   });
-
 })
-
-// document.querySelector('#test-button').addEventListener('click', () => {
-//   const container = document.querySelector('#test-p')
-//   axios.get(`${baseURL}/vibe`)
-//     .then(result => {
-//       container.innerHTML = `
-//         <code>${result.data.users[0].name}</code>
-//       `
-//     })
-// })
