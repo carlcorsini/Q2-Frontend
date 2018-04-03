@@ -1,8 +1,9 @@
 // login/ DATE
-let baseURL = 'http://localhost:3000'
+baseURL = 'http://localhost:3000'
+
 
 var dateControl = document.querySelector('#example-date-input');
-// dateControl.value = '2017-06-01';
+dateControl.value = '2017-06-01';
 
 const loginSubmit = document.querySelector('#login-submit')
 const emailLogin = document.querySelector('#email-login').value

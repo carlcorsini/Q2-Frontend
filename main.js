@@ -1,18 +1,39 @@
-let baseURL = 'http://localhost:3000'
-let query = window.location.search
-let email = query.replace('?email=', '').replace('%40', '@').split('&').shift()
-let password = query.split('&').pop().replace('password=', '')
-let stashedVariable;
+baseURL = 'http://localhost:3000'
+query = window.location.search
+// console.log(query);
+email = query.replace('?email=', '').replace('%40', '@').split('&').shift()
+// console.log(email);
+password = query.split('&').pop().replace('password=', '')
+// console.log(password);
+//let stashedVariable;
+var stashedVariable
+loggedIn = JSON.parse(localStorage.getItem('logged-in'))
+id = JSON.parse(localStorage.getItem('user-id'))
+console.log(loggedIn);
+console.log(id);
+
 document.addEventListener("DOMContentLoaded", (event) => {
   axios.get(`${baseURL}/vibe`).then(response => {
-    let users = response.data.users
-    users.forEach(a => {
-      if (a.email === email && a.password === password)
-        stashedVariable = a.id
-    })
-    if (stashedVariable == undefined) {
-      // alert('user not found')
-      window.location.replace('login.html')
+    if (loggedIn === 'yes') {
+      console.log('hey');
+      stashedVariable = id
+      console.log(stashedVariable);
+    } else if (loggedIn != 'yes') {
+      let users = response.data.users
+      users.forEach(a => {
+        if (a.email === email && a.password === password) {
+          stashedVariable = a.id
+          console.log(typeof a.id);
+          localStorage.setItem('user-id', JSON.stringify(a.id))
+          localStorage.setItem('logged-in', JSON.stringify('yes'))
+        }
+      })
+      if (stashedVariable == undefined) {
+        // alert('user not found')
+        // window.location.replace('login.html')
+        localStorage.setItem('logged-in', JSON.stringify('no'))
+        localStorage.setItem('user-id', JSON.stringify(''))
+      }
     }
     // console.log(stashedVariable);
     const userName = document.querySelector('#user-name')
@@ -82,35 +103,41 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
     // get user friends
 
-    axios.get(`${baseURL}/vibe/friends/${stashedVariable}`)
-      .then(response => {
-        let friends = response.data.result[0].friends
-        // console.log(friends);
-        let friendsPicsArray = []
-        friends.forEach(a => {
-          axios.get(`${baseURL}/vibe/${a}`).then(response => {
-            friendsPicsArray.push(response.data.result[0].profile_pic)
-            friendsPics.forEach((a, idx) => {
-              if (friendsPicsArray[idx] !== undefined)
-                a.src = friendsPicsArray[idx]
+    // axios.get(`${baseURL}/vibe/friends/${stashedVariable}`)
+    //   .then(response => {
+    //     let friends = response.data.result[0].friends
+    //     // console.log(friends);
+    //     let friendsPicsArray = []
+    //     friends.forEach(a => {
+    //       axios.get(`${baseURL}/vibe/${a}`).then(response => {
+    //         friendsPicsArray.push(response.data.result[0].profile_pic)
+    //         friendsPics.forEach((a, idx) => {
+    //           if (friendsPicsArray[idx] !== undefined)
+    //             a.src = friendsPicsArray[idx]
+    //
+    //           else
+    //             a.src = ''
+    //         })
+    //         console.log(friendsPicsArray);
+    //       })
+    //     })
+    //   })
 
-              else
-                a.src = ''
-            })
+    axios.get(`${baseURL}/vibe/friends/${stashedVariable}`).then(response => {
+      console.log(response.data.result[0].followee_id);
+      let followee = response.data.result
+      let friendsPicsArray = []
+      followee.forEach(a => {
+        axios.get(`${baseURL}/vibe/${a.followee_id}`).then(response => {
+          friendsPicsArray.push(response.data.result[0].profile_pic)
+          friendsPics.forEach((b, idx) => {
+            if (friendsPicsArray[idx] !== undefined)
+              b.src = friendsPicsArray[idx]
+            else
+              b.src = ''
           })
         })
-        // console.log(friendsPicsArray);
       })
-  });
-
-})
-
-// document.querySelector('#test-button').addEventListener('click', () => {
-//   const container = document.querySelector('#test-p')
-//   axios.get(`${baseURL}/vibe`)
-//     .then(result => {
-//       container.innerHTML = `
-//         <code>${result.data.users[0].name}</code>
-//       `
-//     })
-// })
+    })
+  })
+});
