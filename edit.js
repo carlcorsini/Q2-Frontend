@@ -16,7 +16,6 @@ const friendsPics = document.querySelectorAll('.friends-pics')
 // console.log(images);
 
 //Get user data
-
 axios.get(`${baseURL}/vibe/${id}`)
   .then(response => {
     // console.log(result);
@@ -39,7 +38,6 @@ axios.get(`${baseURL}/vibe/${id}`)
   })
 
 // Get images for user
-
 axios.get(`${baseURL}/vibe/images/${id}`)
   .then(response => {
     let imageArray = response.data.result
