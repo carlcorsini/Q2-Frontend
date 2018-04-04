@@ -48,29 +48,21 @@ document.addEventListener("DOMContentLoaded", (event) => {
     const friendsPics = document.querySelectorAll('.friends-pics')
     // console.log(images);
 
+    // ===============================================
+    // GET: READ USER PROFILE
+    // ===============================================
+
     //Get user data
 
     axios.get(`${baseURL}/vibe/${stashedVariable}`)
       .then(response => {
         // console.log(result);
-        userName.innerHTML = `
-        ${response.data.result[0].name}
-      `
-        profPic.src = `
-        ${response.data.result[0].profile_pic}
-      `
-        location.innerHTML = `
-        ${response.data.result[0].location}
-      `
-        friends.innerHTML = `
-        ${response.data.result[0].friends.length} Friends
-      `
-        bio.innerHTML = `
-        ${response.data.result[0].bio}
-      `
-        interests.innerHTML = `
-        ${response.data.result[0].interests}
-      `
+        userName.innerHTML = `${response.data.result[0].name}`
+        profPic.src = `${response.data.result[0].profile_pic}`
+        location.innerHTML = `${response.data.result[0].location}`
+        friends.innerHTML = `${response.data.result[0].friends.length} Friends`
+        bio.innerHTML = `${response.data.result[0].bio}`
+        interests.innerHTML = `${response.data.result[0].interests}`
       })
 
     // Get images for user
@@ -118,6 +110,15 @@ document.addEventListener("DOMContentLoaded", (event) => {
         })
       })
     })
+
+    // ===============================================
+    // PUT: UPDATE USER PROFILE
+    // ===============================================
+
+
+    // ===============================================
+    // SIGNOUT
+    // ===============================================
 
     const signOutButton = document.querySelector('#sign-out-button')
     signOutButton.addEventListener('click', (event) => {

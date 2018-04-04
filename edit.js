@@ -3,9 +3,13 @@ baseURL = 'http://localhost:3000'
 loggedIn = JSON.parse(localStorage.getItem('logged-in'))
 id = JSON.parse(localStorage.getItem('user-id'))
 
+// placeholders
 updateLocation = document.querySelector('#update-location')
-profPic = document.querySelector('#profile-pic')
+updateBio = document.querySelector('#bio-form')
+updateInterests = document.querySelector('#interest-update')
+updateProfilePic = document.querySelector('#update-profile-pic')
 
+profPic = document.querySelector('#profile-pic')
 // location = document.querySelector('#location')
 friends = document.querySelector('#friends')
 bio = document.querySelector('#bio-form')
@@ -22,22 +26,18 @@ userName = document.querySelector('#user-name')
 //Get user data
 axios.get(`${baseURL}/vibe/${id}`)
   .then(response => {
-    userName.innerHTML = `
-      ${response.data.result[0].name}
-    `
-    profPic.src = `
-      ${response.data.result[0].profile_pic}
-    `
+
+    // console.log(result);
+    userName.innerHTML = `${response.data.result[0].name}`
+    profPic.src = `${response.data.result[0].profile_pic}`
+    updateProfilePic.value = `${response.data.result[0].profile_pic}`
     updateLocation.value = `${response.data.result[0].location}`
-    friends.innerHTML = `
-      ${response.data.result[0].friends.length} Friends
-    `
-    bio.value = `
-      ${response.data.result[0].bio}
-    `
-    interests.value = `
-      ${response.data.result[0].interests}
-    `
+    updateBio.value = `${response.data.result[0].bio}`
+    updateInterests.value = `${response.data.result[0].interests}`
+    friends.innerHTML = `${response.data.result[0].friends.length} Friends`
+    // bio.innerHTML = `${response.data.result[0].bio}`
+    // interests.innerHTML = `${response.data.result[0].interests}`
+
   })
 
 // Get images for user
