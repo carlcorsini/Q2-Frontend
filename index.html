@@ -1,56 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <title>The Vibe</title>
+    <title>The Vibe</title>
 
-  <!-- <link rel="stylesheet" type="text/css" href="customs.css"> -->
+    <!-- <link rel="stylesheet" type="text/css" href="customs.css"> -->
 
 
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-  <!-- script files -->
-  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  <script defer src="main.js" charset="utf-8"></script>
-</head>
+    <!-- script files -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script defer src="assets/js/main.js" charset="utf-8"></script>
+  </head>
 
-<body>
-  <!-- navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-    <div class="container">
-      <a class="navbar-brand order-1 mr-0" href="#" target="_blank">The Vibe</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+  <body>
+    <!-- navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <div class="container">
+        <a class="navbar-brand order-1 mr-0" href="#" target="_blank">The Vibe</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
 
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-          <a class="nav-item nav-link" href="#home">Home
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-item nav-link" href="#home">Home
             <span class="sr-only">(current)</span>
           </a>
-          <a class="nav-item nav-link" href="#about">About</a>
-          <a class="nav-item nav-link" href="#login">Login</a>
-          <a class="nav-item nav-link" href="#sign-up">Sign Up</a>
-          <a class="nav-item nav-link" id="sign-out-button" href="login.html">Sign Out</a>
+            <a class="nav-item nav-link" href="#about">About</a>
+            <a class="nav-item nav-link" href="#login">Login</a>
+            <a class="nav-item nav-link" href="#sign-up">Sign Up</a>
+            <a class="nav-item nav-link" id="sign-out-button" href="login.html">Sign Out</a>
+          </div>
         </div>
+
       </div>
-
-    </div>
-  </nav>
+    </nav>
 
 
 
-  <!-- /navbar -->
+    <!-- /navbar -->
 
-  <!-- /navbar -->
+    <!-- /navbar -->
 
-  <!-- jumbotron -->
-  <!-- <div class="jumbotron jumbotron-fluid bg-info text-white">
+    <!-- jumbotron -->
+    <!-- <div class="jumbotron jumbotron-fluid bg-info text-white">
 
     <div class="container text-sm-center pt-5">
       <h1 class="display-2">The Vibe</h1>
@@ -61,117 +61,117 @@
       </div>
     </div>
   </div> -->
-  <!-- /jumbotron -->
+    <!-- /jumbotron -->
 
 
-  <!-- container -->
-  <div class="container mt-5">
-    <div id="profile" class="row">
-      <div class="col-md-4">
-        <a href="#">
+    <!-- container -->
+    <div class="container mt-5">
+      <div id="profile" class="row">
+        <div class="col-md-4">
+          <a href="#">
           <img id="profile-pic" class="rounded-circle img-fluid" alt="">
         </a>
-      </div>
-      <div class="col-md-5">
-        <h4 id="user-name" class="display-4 mt-4">User Name</h4>
-        <p id="location" class="lead">Location</p>
-        <div class="btn-group mt-4" role="group">
-          <button id="friends" class="btn btn-light btn-sm">Friends</button>
-          <a class="btn btn-light btn-sm">Following</a>
         </div>
-      </div>
-      <div class="col-md-3">
-        <button class="btn btn-outline-primary float-right">
+        <div class="col-md-5">
+          <h4 id="user-name" class="display-4 mt-4">User Name</h4>
+          <p id="location" class="lead">Location</p>
+          <div class="btn-group mt-4" role="group">
+            <button id="friends" class="btn btn-light btn-sm">Friends</button>
+            <a class="btn btn-light btn-sm">Following</a>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <button class="btn btn-outline-primary float-right">
 
           <a href="edit.html" color="white">Edit</a>
         </button>
+        </div>
       </div>
-    </div>
 
 
-    <!-- Friends -->
-    <div class="row mt-5">
-      <div class="col-sm">
-        <img class="img-fluid rounded-circle friends-pics mx-auto d-block" width="150" height="150" alt="">
+      <!-- Friends -->
+      <div class="row mt-5">
+        <div class="col-sm">
+          <img class="img-fluid rounded-circle friends-pics mx-auto d-block" width="150" height="150" alt="">
+        </div>
+        <div class="col-sm">
+          <img class="img-fluid rounded-circle friends-pics mx-auto d-block" width="150" height="150" alt="">
+        </div>
+        <div class="col-sm">
+          <img class="img-fluid rounded-circle friends-pics mx-auto d-block" width="150" height="150" alt="">
+        </div>
+        <div class="col-sm">
+          <img class="img-fluid rounded-circle friends-pics mx-auto d-block" width="150" height="150" alt="">
+        </div>
       </div>
-      <div class="col-sm">
-        <img class="img-fluid rounded-circle friends-pics mx-auto d-block" width="150" height="150" alt="">
-      </div>
-      <div class="col-sm">
-        <img class="img-fluid rounded-circle friends-pics mx-auto d-block" width="150" height="150" alt="">
-      </div>
-      <div class="col-sm">
-        <img class="img-fluid rounded-circle friends-pics mx-auto d-block" width="150" height="150" alt="">
-      </div>
-    </div>
 
-    <!-- Bio -->
-    <div class="row">
-      <div class="col-lg-12">
-        <h5 class="display-5 mt-5">Bio</h5>
-        <p id="bio">Lorem ipsum dolor amet distillery direct trade YOLO gastropub wayfarers sartorial vexillologist intelligentsia neutra gochujang fam echo park. Gochujang single-origin coffee letterpress franzen sustainable man braid. Master cleanse kinfolk tbh
-          raclette XOXO aesthetic kickstarter church-key keytar bicycle rights cred disrupt direct trade sriracha next level. Copper mug bitters slow-carb affogato stumptown farm-to-table, put a bird on it thundercats tbh selfies literally four loko polaroid
-          +1. Schlitz shaman marfa cray. Deep v fam distillery flannel. Disrupt craft beer cred pork belly chartreuse authentic kombucha kinfolk fixie bitters.</p>
+      <!-- Bio -->
+      <div class="row">
+        <div class="col-lg-12">
+          <h5 class="display-5 mt-5">Bio</h5>
+          <p id="bio">Lorem ipsum dolor amet distillery direct trade YOLO gastropub wayfarers sartorial vexillologist intelligentsia neutra gochujang fam echo park. Gochujang single-origin coffee letterpress franzen sustainable man braid. Master cleanse kinfolk tbh
+            raclette XOXO aesthetic kickstarter church-key keytar bicycle rights cred disrupt direct trade sriracha next level. Copper mug bitters slow-carb affogato stumptown farm-to-table, put a bird on it thundercats tbh selfies literally four loko
+            polaroid +1. Schlitz shaman marfa cray. Deep v fam distillery flannel. Disrupt craft beer cred pork belly chartreuse authentic kombucha kinfolk fixie bitters.</p>
+        </div>
       </div>
-    </div>
 
-    <!-- Interests -->
-    <div class="row">
-      <div class="col-lg-12">
-        <h5 class="display-5 mt-5">Interests</h5>
-        <p id="interests">Lorem ipsum dolor amet distillery direct trade YOLO gastropub wayfarers sartorial vexillologist intelligentsia neutra gochujang fam echo park. Gochujang single-origin coffee letterpress franzen sustainable man braid. Master cleanse kinfolk tbh
-          raclette XOXO aesthetic kickstarter church-key keytar bicycle rights cred disrupt direct trade sriracha next level. Copper mug bitters slow-carb affogato stumptown farm-to-table, put a bird on it thundercats tbh selfies literally four loko polaroid
-          +1. Schlitz shaman marfa cray. Deep v fam distillery flannel. Disrupt craft beer cred pork belly chartreuse authentic kombucha kinfolk fixie bitters.</p>
+      <!-- Interests -->
+      <div class="row">
+        <div class="col-lg-12">
+          <h5 class="display-5 mt-5">Interests</h5>
+          <p id="interests">Lorem ipsum dolor amet distillery direct trade YOLO gastropub wayfarers sartorial vexillologist intelligentsia neutra gochujang fam echo park. Gochujang single-origin coffee letterpress franzen sustainable man braid. Master cleanse kinfolk tbh
+            raclette XOXO aesthetic kickstarter church-key keytar bicycle rights cred disrupt direct trade sriracha next level. Copper mug bitters slow-carb affogato stumptown farm-to-table, put a bird on it thundercats tbh selfies literally four loko
+            polaroid +1. Schlitz shaman marfa cray. Deep v fam distillery flannel. Disrupt craft beer cred pork belly chartreuse authentic kombucha kinfolk fixie bitters.</p>
+        </div>
       </div>
-    </div>
 
 
-    <!-- Media -->
-    <div class="row">
-      <div class="col-lg-12">
-        <h5 class="display-5 mt-3">Media</h5>
-        <div class="row">
-          <div class="col-md-6 col-lg-4">
-            <div class="card mb-3">
-              <img class="card-img-top" src="https://farm3.staticflickr.com/2888/33038677584_8f3755dd1c_k.jpg" alt="media">
-              <div class="card-body">
-                <h4 class="card-title">Image Title</h4>
-                <p class="card-text">Lorem ipsum dolor amet distillery direct trade YOLO gastropub wayfarers sartorial vexillologist intelligentsia neutra gochujang fam echo park.</p>
+      <!-- Media -->
+      <div class="row">
+        <div class="col-lg-12">
+          <h5 class="display-5 mt-3">Media</h5>
+          <div class="row">
+            <div class="col-md-6 col-lg-4">
+              <div class="card mb-3">
+                <img class="card-img-top" src="https://farm3.staticflickr.com/2888/33038677584_8f3755dd1c_k.jpg" alt="media">
+                <div class="card-body">
+                  <h4 class="card-title">Image Title</h4>
+                  <p class="card-text">Lorem ipsum dolor amet distillery direct trade YOLO gastropub wayfarers sartorial vexillologist intelligentsia neutra gochujang fam echo park.</p>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="col-md-6 col-lg-4">
-            <div class="card mb-3">
-              <img class="card-img-top" src="https://farm3.staticflickr.com/2888/33038677584_8f3755dd1c_k.jpg" alt="media">
-              <div class="card-body">
-                <h4 class="card-title">Image Title</h4>
-                <p class="card-text">Lorem ipsum dolor amet distillery direct trade YOLO gastropub wayfarers sartorial vexillologist intelligentsia neutra gochujang fam echo park.</p>
+            <div class="col-md-6 col-lg-4">
+              <div class="card mb-3">
+                <img class="card-img-top" src="https://farm3.staticflickr.com/2888/33038677584_8f3755dd1c_k.jpg" alt="media">
+                <div class="card-body">
+                  <h4 class="card-title">Image Title</h4>
+                  <p class="card-text">Lorem ipsum dolor amet distillery direct trade YOLO gastropub wayfarers sartorial vexillologist intelligentsia neutra gochujang fam echo park.</p>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="col-md-6 col-lg-4">
-            <div class="card mb-3">
-              <img class="card-img-top" src="https://farm3.staticflickr.com/2888/33038677584_8f3755dd1c_k.jpg" alt="media">
-              <div class="card-body">
-                <h4 class="card-title">Image Title</h4>
-                <p class="card-text">Lorem ipsum dolor amet distillery direct trade YOLO gastropub wayfarers sartorial vexillologist intelligentsia neutra gochujang fam echo park.</p>
+            <div class="col-md-6 col-lg-4">
+              <div class="card mb-3">
+                <img class="card-img-top" src="https://farm3.staticflickr.com/2888/33038677584_8f3755dd1c_k.jpg" alt="media">
+                <div class="card-body">
+                  <h4 class="card-title">Image Title</h4>
+                  <p class="card-text">Lorem ipsum dolor amet distillery direct trade YOLO gastropub wayfarers sartorial vexillologist intelligentsia neutra gochujang fam echo park.</p>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <!-- /.container -->
+    <!-- /.container -->
 
-  <!-- Optional JavaScript -->
-  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  <script src="main.js"></script>
-</body>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
 
 </html>
