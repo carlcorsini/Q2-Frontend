@@ -5,7 +5,8 @@ id = JSON.parse(localStorage.getItem('user-id'))
 
 updateLocation = document.querySelector('#update-location')
 profPic = document.querySelector('#profile-pic')
-// location = document.querySelector('#location')
+// const location = document.querySelector('#location')
+userName = document.querySelector('#user-name')
 friends = document.querySelector('#friends')
 bio = document.querySelector('#bio')
 interests = document.querySelector('#interests')
@@ -23,9 +24,9 @@ axios.get(`${baseURL}/vibe/${id}`)
     userName.innerHTML = `
       ${response.data.result[0].name}
     `
-    profPic.src = `
-      ${response.data.result[0].profile_pic}
-    `
+    //   profPic.src = `
+    //   ${response.data.result[0].profile_pic}
+    // `
     updateLocation.value = `${response.data.result[0].location}`
     friends.innerHTML = `
       ${response.data.result[0].friends.length} Friends
