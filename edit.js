@@ -5,6 +5,7 @@ id = JSON.parse(localStorage.getItem('user-id'))
 
 updateLocation = document.querySelector('#update-location')
 profPic = document.querySelector('#profile-pic')
+
 // location = document.querySelector('#location')
 friends = document.querySelector('#friends')
 bio = document.querySelector('#bio-form')
@@ -14,6 +15,8 @@ imageTitle = document.querySelectorAll('.card-title')
 imageText = document.querySelectorAll('.card-text')
 friendsPics = document.querySelectorAll('.friends-pics')
 userName = document.querySelector('#user-name')
+
+
 // console.log(images);
 
 //Get user data
