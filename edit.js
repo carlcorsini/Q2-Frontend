@@ -4,15 +4,16 @@ loggedIn = JSON.parse(localStorage.getItem('logged-in'))
 id = JSON.parse(localStorage.getItem('user-id'))
 
 updateLocation = document.querySelector('#update-location')
-const profPic = document.querySelector('#profile-pic')
+profPic = document.querySelector('#profile-pic')
 // const location = document.querySelector('#location')
-const friends = document.querySelector('#friends')
-const bio = document.querySelector('#bio')
-const interests = document.querySelector('#interests')
-const images = document.querySelectorAll('.card-img-top')
-const imageTitle = document.querySelectorAll('.card-title')
-const imageText = document.querySelectorAll('.card-text')
-const friendsPics = document.querySelectorAll('.friends-pics')
+userName = document.querySelector('#user-name')
+friends = document.querySelector('#friends')
+bio = document.querySelector('#bio')
+interests = document.querySelector('#interests')
+images = document.querySelectorAll('.card-img-top')
+imageTitle = document.querySelectorAll('.card-title')
+imageText = document.querySelectorAll('.card-text')
+friendsPics = document.querySelectorAll('.friends-pics')
 // console.log(images);
 
 //Get user data
@@ -20,9 +21,9 @@ const friendsPics = document.querySelectorAll('.friends-pics')
 axios.get(`${baseURL}/vibe/${id}`)
   .then(response => {
     // console.log(result);
-    //   userName.innerHTML = `
-    //   ${response.data.result[0].name}
-    // `
+    userName.innerHTML = `
+      ${response.data.result[0].name}
+    `
     //   profPic.src = `
     //   ${response.data.result[0].profile_pic}
     // `
