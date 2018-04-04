@@ -73,11 +73,13 @@
         <h4 id="user-name" class="display-4 mt-4">User Name</h4>
         <h5 class="display-5 mt-5">Location</h5>
         <div class="form-group">
-          <input type="text" class="form-control" id="update-location">
+          <input type="text" class="form-control" id="update-location" placeholder="Change location">
         </div>
-        <div class="btn-group mt-4" role="group" aria-label="Callout buttons">
-          <button id="friends" type="button" class="btn btn-light btn-sm" data-target="#friends">## Friends</button>
-          <a class="btn btn-light btn-sm" href="#following">## Following</a>
+        <div class="col-md-5">
+          <div class="btn-group mt-4" role="group" aria-label="Callout buttons">
+            <button id="friends" type="button" class="btn btn-light btn-sm">Friends</button>
+            <a class="btn btn-light btn-sm">Following</a>
+          </div>
         </div>
       </div>
       <div class="col-md-3">
@@ -92,7 +94,7 @@
       <div class="col-lg-12">
         <h5 class="display-5 mt-3">Bio</h5>
         <div class="form-group">
-          <textarea class="form-control" id="update-bio" rows="3" placeholder="Update here..."></textarea>
+          <textarea class="form-control" id="bio-form" rows="3" placeholder="Update here..."></textarea>
         </div>
       </div>
     </div>
@@ -102,7 +104,7 @@
       <div class="col-lg-12">
         <h5 class="display-5 mt-3">Interests</h5>
         <div class="form-group">
-          <textarea class="form-control" id="update-interests" rows="3" placeholder="Update here..."></textarea>
+          <textarea class="form-control" id="interest-update" rows="3" placeholder="Update here..."></textarea>
         </div>
       </div>
     </div>
