@@ -48,6 +48,10 @@ document.addEventListener("DOMContentLoaded", (event) => {
     const friendsPics = document.querySelectorAll('.friends-pics')
     // console.log(images);
 
+    // ===============================================
+    // GET: READ USER PROFILE
+    // ===============================================
+
     //Get user data
 
     axios.get(`${baseURL}/vibe/${stashedVariable}`)
@@ -118,6 +122,15 @@ document.addEventListener("DOMContentLoaded", (event) => {
         })
       })
     })
+
+    // ===============================================
+    // PUT: UPDATE USER PROFILE
+    // ===============================================
+
+
+    // ===============================================
+    // SIGNOUT
+    // ===============================================
 
     const signOutButton = document.querySelector('#sign-out-button')
     signOutButton.addEventListener('click', (event) => {
