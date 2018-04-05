@@ -143,7 +143,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
     const signOutButton = document.querySelector('#sign-out-button')
     signOutButton.addEventListener('click', (event) => {
       localStorage.setItem('logged-in', JSON.stringify('no'))
-      localStorage.setItem('user-id', JSON.stringify(''))
+      localStorage.setItem('user-id', JSON.stringify('0'))
+      window.location.replace('login.html')
     })
   })
 });
