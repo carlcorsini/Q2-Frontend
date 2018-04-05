@@ -8,7 +8,7 @@
 
   <title>The Vibe</title>
 
-  <!-- <link rel="stylesheet" type="text/css" href="customs.css"> -->
+  <link rel="stylesheet" type="text/css" href="assets/css/custom.css">
 
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
@@ -16,7 +16,7 @@
 
   <!-- script files -->
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  <script defer src="view.js" charset="utf-8"></script>
+  <script defer src="assets/js/view.js" charset="utf-8"></script>
 </head>
 
 <body>
@@ -30,7 +30,7 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-          <a class="nav-item nav-link" href="#home">Home
+          <a class="nav-item nav-link" href="index.html">Home
             <span class="sr-only">(current)</span>
           </a>
           <a class="nav-item nav-link" href="#about">About</a>
@@ -72,42 +72,45 @@
         <p id="location" class="lead">Location</p>
         <div class="btn-group mt-4" role="group">
           <button id="friends" class="btn btn-light btn-sm">Friends</button>
-          <a class="btn btn-light btn-sm">Following</a>
+          <a class="btn btn-light btn-sm">Follow</a>
         </div>
-      </div>
-      <div class="col-md-3">
-        <button class="btn btn-outline-primary float-right">
-          <a href="edit.html" color="white">Edit</a>
-        </button>
       </div>
     </div>
 
     <!-- Friends -->
     <div class="row mt-5">
       <div class="col-sm">
-        <img class="img-fluid rounded-circle friends-pics mx-auto d-block" width="150" height="150" alt="">
+        <a href="view.html">
+          <img data-followee="" class="img-fluid rounded-circle friends-pics mx-auto d-block" width="150" height="150" alt="">
+        </a>
+        <p class="friend-name mt-3" style="text-align:center"> </p>
       </div>
       <div class="col-sm">
-        <img class="img-fluid rounded-circle friends-pics mx-auto d-block" width="150" height="150" alt="">
+        <a href="view.html">
+          <img data-followee="" class="img-fluid rounded-circle friends-pics mx-auto d-block" width="150" height="150" alt="">
+        </a>
+        <p class="friend-name mt-3" style="text-align:center"> </p>
       </div>
       <div class="col-sm">
-        <img class="img-fluid rounded-circle friends-pics mx-auto d-block" width="150" height="150" alt="">
+        <a href="view.html">
+          <img data-followee="" class="img-fluid rounded-circle friends-pics mx-auto d-block" width="150" height="150" alt="">
+        </a>
+        <p class="friend-name mt-3" style="text-align:center"> </p>
       </div>
       <div class="col-sm">
-        <img class="img-fluid rounded-circle friends-pics mx-auto d-block" width="150" height="150" alt="">
+        <a href="view.html">
+          <img data-followee="" class="img-fluid rounded-circle friends-pics mx-auto d-block" width="150" height="150" alt="">
+        </a>
+        <p class="friend-name mt-3" style="text-align:center"> </p>
       </div>
     </div>
+
 
     <!-- Bio -->
     <div class="row">
       <div class="col-lg-12">
         <h5 class="display-5 mt-5">Bio</h5>
-        <p id="bio">Lorem ipsum dolor amet distillery direct trade YOLO gastropub wayfarers sartorial vexillologist intelligentsia neutra
-          gochujang fam echo park. Gochujang single-origin coffee letterpress franzen sustainable man braid. Master cleanse
-          kinfolk tbh raclette XOXO aesthetic kickstarter church-key keytar bicycle rights cred disrupt direct trade sriracha
-          next level. Copper mug bitters slow-carb affogato stumptown farm-to-table, put a bird on it thundercats tbh selfies
-          literally four loko polaroid +1. Schlitz shaman marfa cray. Deep v fam distillery flannel. Disrupt craft beer cred
-          pork belly chartreuse authentic kombucha kinfolk fixie bitters.</p>
+        <p id="bio"></p>
       </div>
     </div>
 
@@ -115,12 +118,7 @@
     <div class="row">
       <div class="col-lg-12">
         <h5 class="display-5 mt-5">Interests</h5>
-        <p id="interests">Lorem ipsum dolor amet distillery direct trade YOLO gastropub wayfarers sartorial vexillologist intelligentsia neutra
-          gochujang fam echo park. Gochujang single-origin coffee letterpress franzen sustainable man braid. Master cleanse
-          kinfolk tbh raclette XOXO aesthetic kickstarter church-key keytar bicycle rights cred disrupt direct trade sriracha
-          next level. Copper mug bitters slow-carb affogato stumptown farm-to-table, put a bird on it thundercats tbh selfies
-          literally four loko polaroid +1. Schlitz shaman marfa cray. Deep v fam distillery flannel. Disrupt craft beer cred
-          pork belly chartreuse authentic kombucha kinfolk fixie bitters.</p>
+        <p id="interests"></p>
       </div>
     </div>
 
@@ -134,8 +132,7 @@
               <img class="card-img-top" src="https://farm3.staticflickr.com/2888/33038677584_8f3755dd1c_k.jpg" alt="media">
               <div class="card-body">
                 <h4 class="card-title">Image Title</h4>
-                <p class="card-text">Lorem ipsum dolor amet distillery direct trade YOLO gastropub wayfarers sartorial vexillologist intelligentsia
-                  neutra gochujang fam echo park.</p>
+                <p class="card-text"></p>
               </div>
             </div>
           </div>
@@ -144,8 +141,7 @@
               <img class="card-img-top" src="https://farm3.staticflickr.com/2888/33038677584_8f3755dd1c_k.jpg" alt="media">
               <div class="card-body">
                 <h4 class="card-title">Image Title</h4>
-                <p class="card-text">Lorem ipsum dolor amet distillery direct trade YOLO gastropub wayfarers sartorial vexillologist intelligentsia
-                  neutra gochujang fam echo park.</p>
+                <p class="card-text">.</p>
               </div>
             </div>
           </div>
@@ -154,8 +150,7 @@
               <img class="card-img-top" src="https://farm3.staticflickr.com/2888/33038677584_8f3755dd1c_k.jpg" alt="media">
               <div class="card-body">
                 <h4 class="card-title">Image Title</h4>
-                <p class="card-text">Lorem ipsum dolor amet distillery direct trade YOLO gastropub wayfarers sartorial vexillologist intelligentsia
-                  neutra gochujang fam echo park.</p>
+                <p class="card-text"></p>
               </div>
             </div>
           </div>
@@ -174,7 +169,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
     crossorigin="anonymous"></script>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  <script src="view.js"></script>
+  <script src="assets/js/view.js"></script>
 </body>
 
 </html>

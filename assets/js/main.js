@@ -1,23 +1,15 @@
 baseURL = 'http://localhost:3000'
 query = window.location.search
-// console.log(query);
 email = query.replace('?email=', '').replace('%40', '@').split('&').shift()
-// console.log(email);
 password = query.split('&').pop().replace('password=', '')
-// console.log(password);
-//let stashedVariable;
 var stashedVariable
 loggedIn = JSON.parse(localStorage.getItem('logged-in'))
 id = JSON.parse(localStorage.getItem('user-id'))
-// console.log(loggedIn);
-// console.log(id);
 
 document.addEventListener("DOMContentLoaded", (event) => {
   axios.get(`${baseURL}/vibe`).then(response => {
     if (loggedIn === 'yes') {
-      // console.log('hey')
       stashedVariable = id
-      // console.log(stashedVariable)
     } else if (loggedIn != 'yes') {
       let users = response.data.users
       users.forEach(a => {
@@ -29,13 +21,11 @@ document.addEventListener("DOMContentLoaded", (event) => {
         }
       })
       if (stashedVariable == undefined) {
-        // alert('user not found')
         window.location.replace('login.html')
         localStorage.setItem('logged-in', JSON.stringify('no'))
         localStorage.setItem('user-id', JSON.stringify(''))
       }
     }
-    // console.log(stashedVariable);
     const userName = document.querySelector('#user-name')
     const profPic = document.querySelector('#profile-pic')
     const location = document.querySelector('#location')
@@ -46,7 +36,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     const imageTitle = document.querySelectorAll('.card-title')
     const imageText = document.querySelectorAll('.card-text')
     const friendsPics = document.querySelectorAll('.friends-pics')
-    // console.log(images);
+    const friendName = document.querySelectorAll('.friend-name')
 
     // ===============================================
     // GET: READ USER PROFILE
@@ -56,13 +46,14 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
     axios.get(`${baseURL}/vibe/${stashedVariable}`)
       .then(response => {
-        // console.log(result);
-        userName.innerHTML = `${response.data.result[0].name}`
-        profPic.src = `${response.data.result[0].profile_pic}`
-        location.innerHTML = `${response.data.result[0].location}`
-        friends.innerHTML = `${response.data.result[0].friends.length} Friends`
-        bio.innerHTML = `${response.data.result[0].bio}`
-        interests.innerHTML = `${response.data.result[0].interests}`
+        axios.get(`${baseURL}/vibe/friends/${stashedVariable}`).then(response2 => {
+          userName.innerHTML = `${response.data.result[0].name}`
+          profPic.src = `${response.data.result[0].profile_pic}`
+          location.innerHTML = `${response.data.result[0].location}`
+          friends.innerHTML = `Followers ${response2.data.result.length}`
+          bio.innerHTML = `${response.data.result[0].bio}`
+          interests.innerHTML = `${response.data.result[0].interests}`
+        })
       })
 
     // Get images for user
@@ -98,16 +89,50 @@ document.addEventListener("DOMContentLoaded", (event) => {
     axios.get(`${baseURL}/vibe/friends/${stashedVariable}`).then(response => {
       let followee = response.data.result
       let friendsPicsArray = []
+      let friendsIdArray = []
+      let friendNameArray = []
       followee.forEach(a => {
         axios.get(`${baseURL}/vibe/${a.followee_id}`).then(response => {
           friendsPicsArray.push(response.data.result[0].profile_pic)
+          friendsIdArray.push(a.followee_id)
+          friendNameArray.push(response.data.result[0].name)
           friendsPics.forEach((b, idx) => {
-            if (friendsPicsArray[idx] !== undefined)
+            if (friendsPicsArray[idx] !== undefined) {
               b.src = friendsPicsArray[idx]
-            else
+              b.dataset.followee = friendsIdArray[idx]
+            } else {
               b.src = ''
+            }
+          })
+          friendName.forEach((b, idx) => {
+            if (friendsPicsArray[idx] !== undefined) {
+              b.innerHTML = friendNameArray[idx]
+            } else {
+              b.src = ''
+            }
           })
         })
+      })
+    })
+
+    // hover over friend name
+    friendPic = document.querySelectorAll('.friends-pics')
+    friendsName = document.querySelectorAll('.friend-name')
+
+    friendPic.forEach((a, idx) => {
+      a.addEventListener('mouseover', (event) => {
+        friendsName[idx].style.display = 'block'
+        setTimeout(function () {
+          friendsName[idx].style.display = 'none'
+        }, 2000);
+      }, false);
+    })
+
+    // add event listener on click, local storage set item with their user id from html data-followee=""
+
+    friendPic.forEach(a => {
+      a.addEventListener('click', (event) => {
+        localStorage.setItem('friend-id', JSON.stringify(Number(a.dataset.followee)))
       })
     })
 
