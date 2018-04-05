@@ -17,6 +17,7 @@ saveButton.addEventListener('click', (event) => {
     interests: interestUpdate
   }).then(response => {})
   if (uploadUrl.length < 1) window.location.replace(index.html)
+
   axios.post(`${baseURL}/vibe/images/${id}`, {
     image_url: uploadUrl,
     title: uploadMediaTitle,
