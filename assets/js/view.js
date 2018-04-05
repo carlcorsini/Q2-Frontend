@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
       let imageArray = response.data.result
       images.forEach((a, idx) => {
         if (imageArray[idx] !== undefined)
-          a.src = imageArray[idx].image_url
+          a.src = imageArray[idx].url
 
         else
           a.src = 'http://via.placeholder.com/275x275'
@@ -99,41 +99,49 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
   // hover over friend name
   friendPics = document.querySelectorAll('.friends-pics')
-  console.log(friendPics);
-
+  console.log('this is the friends pic stuff === ', friendsPics);
   friendsName = document.querySelectorAll('.friend-name')
-  console.log(friendsName);
-
 
   friendPics.forEach((a, idx) => {
+    console.log(idx);
     a.addEventListener('mouseover', (event) => {
       console.log('hey');
 
       friendsName[idx].style.display = 'block';
-      setTimeout(function() {
+      setTimeout(function () {
         friendsName[idx].style.display = 'none';
       }, 2000);
     }, false);
   })
 
   // add event listener on click, local storage set item with their user id from html data-followee=""
-  console.log(friendPics[0].dataset.followee)
   friendPics.forEach((a, idx) => {
     a.addEventListener('click', (event) => {
-      console.log('hey');
-
       localStorage.setItem('friend-id', JSON.stringify(Number(a.dataset.followee)))
     })
+  })
+
+  // follow button 
+  const followButton = document.querySelector('#follow-button')
+  followButton.addEventListener('click', (event) => {
+    axios.post(`${baseURL}/vibe/friends/`, {
+        friend,
+        stashedVariable
+      })
+      .then(result => {
+        console.log('this is the result === ', result);
+      })
   })
 
   // ===============================================
   // SIGNOUT
   // ===============================================
 
+
+
   const signOutButton = document.querySelector('#sign-out-button')
   signOutButton.addEventListener('click', (event) => {
     localStorage.setItem('logged-in', JSON.stringify('no'))
     localStorage.setItem('user-id', JSON.stringify(''))
   })
-  // })
 });

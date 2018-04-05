@@ -61,13 +61,16 @@ document.addEventListener("DOMContentLoaded", (event) => {
     axios.get(`${baseURL}/vibe/images/${stashedVariable}`)
       .then(response => {
         let imageArray = response.data.result
+        // let videoArray
         images.forEach((a, idx) => {
           if (imageArray[idx] !== undefined)
-            a.src = imageArray[idx].image_url
+            a.src = imageArray[idx].url
 
           else
             a.src = 'http://via.placeholder.com/275x275'
         })
+
+        // div.appendchild(<iframe width="560" height="315" src="a.url" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>)
         imageTitle.forEach((a, idx) => {
           if (imageArray[idx] !== undefined) {
             a.innerHTML = imageArray[idx].title
@@ -122,7 +125,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     friendPic.forEach((a, idx) => {
       a.addEventListener('mouseover', (event) => {
         friendsName[idx].style.display = 'block'
-        setTimeout(function () {
+        setTimeout(function() {
           friendsName[idx].style.display = 'none'
         }, 2000);
       }, false);
