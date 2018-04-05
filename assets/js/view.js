@@ -28,12 +28,14 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
   axios.get(`${baseURL}/vibe/${stashedVariable}`)
     .then(response => {
-      userName.innerHTML = `${response.data.result[0].name}`
-      profPic.src = `${response.data.result[0].profile_pic}`
-      location.innerHTML = `${response.data.result[0].location}`
-      friends.innerHTML = `${response.data.result[0].friends.length} Friends`
-      bio.innerHTML = `${response.data.result[0].bio}`
-      interests.innerHTML = `${response.data.result[0].interests}`
+      axios.get(`${baseURL}/vibe/friends/${stashedVariable}`).then(response2 => {
+        userName.innerHTML = `${response.data.result[0].name}`
+        profPic.src = `${response.data.result[0].profile_pic}`
+        location.innerHTML = `${response.data.result[0].location}`
+        friends.innerHTML = `Followers ${response2.data.result.length}`
+        bio.innerHTML = `${response.data.result[0].bio}`
+        interests.innerHTML = `${response.data.result[0].interests}`
+      })
     })
 
   // Get images for user
@@ -108,7 +110,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
       console.log('hey');
 
       friendsName[idx].style.display = 'block';
-      setTimeout(function () {
+      setTimeout(function() {
         friendsName[idx].style.display = 'none';
       }, 2000);
     }, false);
