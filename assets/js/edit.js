@@ -26,18 +26,12 @@ userName = document.querySelector('#user-name')
 //Get user data
 axios.get(`${baseURL}/vibe/${id}`)
   .then(response => {
-
-    // console.log(result);
     userName.innerHTML = `${response.data.result[0].name}`
     profPic.src = `${response.data.result[0].profile_pic}`
     updateProfilePic.value = `${response.data.result[0].profile_pic}`
     updateLocation.value = `${response.data.result[0].location}`
     updateBio.value = `${response.data.result[0].bio}`
     updateInterests.value = `${response.data.result[0].interests}`
-    friends.innerHTML = `${response.data.result[0].friends.length} Friends`
-    // bio.innerHTML = `${response.data.result[0].bio}`
-    // interests.innerHTML = `${response.data.result[0].interests}`
-
   })
 
 // Get images for user
