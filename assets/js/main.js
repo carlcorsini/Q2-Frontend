@@ -6,7 +6,6 @@ var stashedVariable
 loggedIn = JSON.parse(localStorage.getItem('logged-in'))
 id = JSON.parse(localStorage.getItem('user-id'))
 
-
 document.addEventListener("DOMContentLoaded", (event) => {
   axios.get(`${baseURL}/vibe`).then(response => {
     if (loggedIn === 'yes') {
@@ -37,6 +36,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     const imageTitle = document.querySelectorAll('.card-title')
     const imageText = document.querySelectorAll('.card-text')
     const friendsPics = document.querySelectorAll('.friends-pics')
+    const friendName = document.querySelectorAll('.friend-name')
 
     // ===============================================
     // GET: READ USER PROFILE
@@ -89,23 +89,52 @@ document.addEventListener("DOMContentLoaded", (event) => {
     axios.get(`${baseURL}/vibe/friends/${stashedVariable}`).then(response => {
       let followee = response.data.result
       let friendsPicsArray = []
+      let friendsIdArray = []
+      let friendNameArray = []
       followee.forEach(a => {
         axios.get(`${baseURL}/vibe/${a.followee_id}`).then(response => {
           friendsPicsArray.push(response.data.result[0].profile_pic)
+          friendsIdArray.push(a.followee_id)
+          friendNameArray.push(response.data.result[0].name)
           friendsPics.forEach((b, idx) => {
-            if (friendsPicsArray[idx] !== undefined)
+            if (friendsPicsArray[idx] !== undefined) {
               b.src = friendsPicsArray[idx]
-            else
+              b.dataset.followee = friendsIdArray[idx]
+            } else {
               b.src = ''
+            }
+          })
+          friendName.forEach((b, idx) => {
+            if (friendsPicsArray[idx] !== undefined) {
+              b.innerHTML = friendNameArray[idx]
+            } else {
+              b.src = ''
+            }
           })
         })
       })
     })
 
-    // ===============================================
-    // PUT: UPDATE USER PROFILE
-    // ===============================================
+    // hover over friend name
+    friendPic = document.querySelectorAll('.friends-pics')
+    friendsName = document.querySelectorAll('.friend-name')
 
+    friendPic.forEach((a, idx) => {
+      a.addEventListener('mouseover', (event) => {
+        friendsName[idx].style.display = 'block'
+        setTimeout(function () {
+          friendsName[idx].style.display = 'none'
+        }, 2000);
+      }, false);
+    })
+
+    // add event listener on click, local storage set item with their user id from html data-followee=""
+
+    friendPic.forEach(a => {
+      a.addEventListener('click', (event) => {
+        localStorage.setItem('friend-id', JSON.stringify(Number(a.dataset.followee)))
+      })
+    })
 
     // ===============================================
     // SIGNOUT
@@ -114,7 +143,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
     const signOutButton = document.querySelector('#sign-out-button')
     signOutButton.addEventListener('click', (event) => {
       localStorage.setItem('logged-in', JSON.stringify('no'))
-      localStorage.setItem('user-id', JSON.stringify(''))
+      localStorage.setItem('user-id', JSON.stringify('0'))
+      window.location.replace('login.html')
     })
   })
 });

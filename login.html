@@ -63,8 +63,9 @@
               <button id="login-submit" type="submit" class="btn btn-secondary" value="submit">Log In</button>
             </div>
           </div>
-
         </div>
+
+
       </form>
 
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
@@ -81,13 +82,10 @@
 
       <h1 class="display-2">The Vibe</h1>
       <p class="lead font-weight-bold">Where to connect with folks you vibe with.</p>
-      <div class="btn-group mt-4" role="group" aria-label="Callout buttons">
 
-
+      <div class="" role="group" aria-label="Callout buttons">
         <!-- Button to Open the Modal -->
-        <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal">
-
-        Create Profile </button>
+        <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal">Create Profile</button>
 
         <!-- The Modal -->
 
@@ -111,13 +109,13 @@
                       <div class="form-group">
                         <i class="fa fa-user prefix grey-text"></i>
 
-                        <input type="text" class="form-control" placeholder="First name" />
+                        <input id="create-first-name" type="text" class="form-control" placeholder="First name" />
                       </div>
                     </div>
                     <!-- Last Name -->
                     <div class="col-md-6">
                       <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Last name" />
+                        <input id="create-last-name" type="text" class="form-control" placeholder="Last name" />
                       </div>
                     </div>
                     <!-- /.col -->
@@ -125,27 +123,27 @@
                   <!-- /.row -->
 
                   <!-- Birthday -->
-                  <div class="form-group col-md-12">
+                  <!-- <div class="form-group col-md-12">
                     <label for="birthday">Birthday</label>
                     <input class="form-control" type="date" id="example-date-input">
-                  </div>
+                  </div> -->
                   <!-- Email -->
                   <div class="form-group col-md-12">
                     <label for="exampleInputEmail1">Email </label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                    <input id="create-email" type="email" class="form-control" placeholder="Enter email">
                   </div>
 
                   <!-- Passowrd -->
                   <div class="form-group col-md-12">
 
                     <label for="exampleInputPassword1">Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="New password" pattern=".{8,12}" required title="8 to 12 characters">
+                    <input id="create-password" type="password" class="form-control" placeholder="New password" pattern=".{8,12}" required title="8 to 12 characters">
                   </div>
 
 
                   <div class="modal-body">
 
-                    <button id="create-submit" type="submit" class="btn btn-primary" value="submit">Submit</button>
+                    <button id="create-button" type="button" class="btn btn-primary" value="submit">Submit</button>
                   </div>
 
                 </form>
@@ -153,15 +151,15 @@
               </div>
             </div>
           </div>
+
+
+        </div>
+
+        <div class="empty">
         </div>
 
 
       </div>
-
-      <div class="empty">
-      </div>
-
-
     </div>
     <footer class="footer footer-default">
       <div class="container">
