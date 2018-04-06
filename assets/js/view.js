@@ -132,6 +132,61 @@ document.addEventListener("DOMContentLoaded", (event) => {
   })
 
   // ===============================================
+  // GET media for user
+  // ===============================================
+
+  axios.get(`${baseURL}/vibe/images/${stashedVariable}`)
+    .then(response => {
+      let imageArray = response.data.result
+      let userMedia = document.querySelector('.user-media')
+
+      imageArray.reverse()
+      imageArray.forEach(image => {
+        console.log(image.url)
+        console.log(image.type)
+        if (image.type === 'video') {
+          $(userMedia).append(`
+          <div class="col-md-6 col-lg-4">
+            <div class="card mb-3">
+              <iframe width="360" height="215" src="${image.url.replace(/watch\?v=/, 'embed/')}" frameborder="0"  allowfullscreen></iframe>
+              <div class="card-body">
+                <h4 class="card-title">${image.title}</h4>
+                <p class="card-text">${image.description}</p>
+              </div>
+            </div>
+          </div>        
+        `);
+        } else {
+          $(userMedia).append(`
+          <div class="col-md-6 col-lg-4">
+            <div class="card mb-3">
+              <img width="360" height="215" class="card-img-top" src="${image.url}" alt="media">
+              <div class="card-body">
+                <h4 class="card-title">${image.title}</h4>
+                <p class="card-text">${image.description}</p>
+              </div>
+            </div>
+          </div>        
+        `);
+        }
+      })
+
+      imageTitle.forEach((a, idx) => {
+        if (imageArray[idx] !== undefined) {
+          a.innerHTML = imageArray[idx].title
+        } else
+          a.innerHTML = 'placeholder'
+      })
+      imageText.forEach((a, idx) => {
+        if (imageArray[idx] !== undefined)
+          a.innerHTML = imageArray[idx].description
+
+        else
+          a.innerHTML = 'placeholder'
+      })
+    })
+
+  // ===============================================
   // Follow button for friends
   // ===============================================
 
