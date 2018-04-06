@@ -35,28 +35,28 @@ axios.get(`${baseURL}/vibe/${id}`)
   })
 
 // Get images for user
-axios.get(`${baseURL}/vibe/images/${id}`)
-  .then(response => {
-    let imageArray = response.data.result
-    images.forEach((a, idx) => {
-      if (imageArray[idx] !== undefined)
-        a.src = imageArray[idx].image_url
-
-      else
-        a.src = 'http://via.placeholder.com/275x275'
-    })
-    imageTitle.forEach((a, idx) => {
-      if (imageArray[idx] !== undefined) {
-        a.innerHTML = imageArray[idx].title
-        // console.log(imageArray[idx].title);
-      } else
-        a.innerHTML = 'placeholder'
-    })
-    imageText.forEach((a, idx) => {
-      if (imageArray[idx] !== undefined)
-        a.innerHTML = imageArray[idx].description
-
-      else
-        a.innerHTML = 'placeholder'
-    })
-  })
+// axios.get(`${baseURL}/vibe/images/${id}`)
+//   .then(response => {
+//     let imageArray = response.data.result
+//     images.forEach((a, idx) => {
+//       if (imageArray[idx] !== undefined)
+//         a.src = imageArray[idx].image_url
+//
+//       else
+//         a.src = 'http://via.placeholder.com/275x275'
+//     })
+//     imageTitle.forEach((a, idx) => {
+//       if (imageArray[idx] !== undefined) {
+//         a.innerHTML = imageArray[idx].title
+//         // console.log(imageArray[idx].title);
+//       } else
+//         a.innerHTML = 'placeholder'
+//     })
+//     imageText.forEach((a, idx) => {
+//       if (imageArray[idx] !== undefined)
+//         a.innerHTML = imageArray[idx].description
+//
+//       else
+//         a.innerHTML = 'placeholder'
+//     })
+//   })
