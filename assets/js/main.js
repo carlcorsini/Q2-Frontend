@@ -1,5 +1,5 @@
-baseURL = 'http://localhost:3000'
-query = window.location.search
+baseURL = https: //still-springs-97508.herokuapp.com/
+  query = window.location.search
 email = query.replace('?email=', '').replace('%40', '@').split('&').shift()
 password = query.split('&').pop().replace('password=', '')
 var stashedVariable
@@ -76,7 +76,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
                 <p class="card-text">${image.description}</p>
               </div>
             </div>
-          </div>        
+          </div>
         `);
           } else {
             $(userMedia).append(`
@@ -88,7 +88,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
                 <p class="card-text">${image.description}</p>
               </div>
             </div>
-          </div>        
+          </div>
         `);
           }
         })
@@ -151,7 +151,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     friendPic.forEach((a, idx) => {
       a.addEventListener('mouseover', (event) => {
         friendsName[idx].style.display = 'block'
-        setTimeout(function () {
+        setTimeout(function() {
           friendsName[idx].style.display = 'none'
         }, 2000);
       }, false);

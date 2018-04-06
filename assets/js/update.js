@@ -1,5 +1,5 @@
-baseURL = 'http://localhost:3000'
-loggedIn = JSON.parse(localStorage.getItem('logged-in'))
+baseURL = https: //still-springs-97508.herokuapp.com/
+  loggedIn = JSON.parse(localStorage.getItem('logged-in'))
 id = JSON.parse(localStorage.getItem('user-id'))
 saveButton = document.querySelector('#save-button')
 console.log(id);
@@ -73,7 +73,7 @@ axios.get(`${baseURL}/vibe/images/${id}`)
                 <button class="btn btn-block btn-danger delete-button" data-id="${image.id}">Remove</button>
               </div>
             </div>
-          </div>      
+          </div>
         `);
       } else {
         $(userMedia).append(`
@@ -86,7 +86,7 @@ axios.get(`${baseURL}/vibe/images/${id}`)
                 <button class="btn btn-block btn-danger delete-button" data-id="${image.id}">Remove</button>
               </div>
             </div>
-          </div>          
+          </div>
         `);
       }
     })
