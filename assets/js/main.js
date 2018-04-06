@@ -49,7 +49,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
           location.innerHTML = `${response.data.result[0].location}`
           friends.innerHTML = `Followers ${response2.data.result.length}`
           bio.innerHTML = `${response.data.result[0].bio}`
-          interests.innerHTML = `${response.data.result[0].interests}`
         })
       })
 
@@ -76,7 +75,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
                 <p class="card-text">${image.description}</p>
               </div>
             </div>
-          </div>        
+          </div>
         `);
           } else {
             $(userMedia).append(`
@@ -88,7 +87,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
                 <p class="card-text">${image.description}</p>
               </div>
             </div>
-          </div>        
+          </div>
         `);
           }
         })
@@ -151,7 +150,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     friendPic.forEach((a, idx) => {
       a.addEventListener('mouseover', (event) => {
         friendsName[idx].style.display = 'block'
-        setTimeout(function () {
+        setTimeout(function() {
           friendsName[idx].style.display = 'none'
         }, 2000);
       }, false);

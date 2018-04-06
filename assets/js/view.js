@@ -5,6 +5,7 @@ password = query.split('&').pop().replace('password=', '')
 var stashedVariable
 loggedIn = JSON.parse(localStorage.getItem('logged-in'))
 friend = JSON.parse(localStorage.getItem('friend-id'))
+let userId = JSON.parse(localStorage.getItem('user-id'))
 
 document.addEventListener("DOMContentLoaded", (event) => {
   stashedVariable = friend
@@ -32,7 +33,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
         location.innerHTML = `${response.data.result[0].location}`
         friends.innerHTML = `Followers ${response2.data.result.length}`
         bio.innerHTML = `${response.data.result[0].bio}`
-        interests.innerHTML = `${response.data.result[0].interests}`
       })
     })
 
@@ -113,7 +113,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
       console.log('hey');
 
       friendsName[idx].style.display = 'block';
-      setTimeout(function () {
+      setTimeout(function() {
         friendsName[idx].style.display = 'none';
       }, 2000);
     }, false);
@@ -154,7 +154,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
                 <p class="card-text">${image.description}</p>
               </div>
             </div>
-          </div>        
+          </div>
         `);
         } else {
           $(userMedia).append(`
@@ -166,7 +166,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
                 <p class="card-text">${image.description}</p>
               </div>
             </div>
-          </div>        
+          </div>
         `);
         }
       })
@@ -194,10 +194,10 @@ document.addEventListener("DOMContentLoaded", (event) => {
   followButton.addEventListener('click', (event) => {
     axios.post(`${baseURL}/vibe/friends/`, {
         friend,
-        stashedVariable
+        userId
       })
       .then(result => {
-        console.log('this is the result === ', result);
+        window.location.replace('view.html')
       })
   })
 
