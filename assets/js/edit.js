@@ -31,7 +31,6 @@ axios.get(`${baseURL}/vibe/${id}`)
     updateProfilePic.value = `${response.data.result[0].profile_pic}`
     updateLocation.value = `${response.data.result[0].location}`
     updateBio.value = `${response.data.result[0].bio}`
-    updateInterests.value = `${response.data.result[0].interests}`
   })
 
 // Get images for user
