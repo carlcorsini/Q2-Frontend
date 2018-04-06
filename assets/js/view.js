@@ -33,7 +33,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
         location.innerHTML = `${response.data.result[0].location}`
         friends.innerHTML = `Followers ${response2.data.result.length}`
         bio.innerHTML = `${response.data.result[0].bio}`
-        interests.innerHTML = `${response.data.result[0].interests}`
       })
     })
 
