@@ -11,18 +11,24 @@ console.log(id);
 saveButton.addEventListener('click', (event) => {
   let bioForm = document.querySelector('#bio-form').value
   let updateProfilePic = document.querySelector('#update-profile-pic').value
-  let interestUpdate = document.querySelector('#interest-update').value
   let imageUrl = document.querySelector('#upload-image').value
-  console.log(imageUrl);
   let videoUrl = document.querySelector('#upload-video').value
   let uploadMediaTitle = document.querySelector('#upload-media-title').value
   let uploadMediaDescription = document.querySelector('#upload-media-description').value
+
   axios.put(`${baseURL}/vibe/${id}`, {
     bio: bioForm,
-    profile_pic: updateProfilePic,
-    interests: interestUpdate
-  }).then(response => {})
-  if (imageUrl.length < 1 && videoUrl.length < 1) window.location.replace(index.html)
+    profile_pic: updateProfilePic
+  }).then(response => {
+    setTimeout(() => {
+      if (imageUrl.length < 1 && videoUrl.length < 1) {
+        window.location.replace('index.html')
+      }
+    }, 5000)
+  })
+  if (imageUrl.length < 1 && videoUrl.length < 1) {
+    window.location.replace('index.html')
+  }
   if (videoUrl.length < 1) {
     axios.post(`${baseURL}/vibe/images/${id}`, {
       url: imageUrl,
@@ -55,13 +61,8 @@ axios.get(`${baseURL}/vibe/images/${id}`)
   .then(response => {
     let imageArray = response.data.result
     let userMedia = document.querySelector('.user-media')
-    // console.log(userMedia)
-
     imageArray.reverse()
     imageArray.forEach(image => {
-      console.log(image.id)
-      console.log(image.url)
-      console.log(image.type)
       if (image.type === 'video') {
         $(userMedia).append(`
           <div class="col-md-6 col-lg-4">
@@ -98,23 +99,9 @@ axios.get(`${baseURL}/vibe/images/${id}`)
     let deleteButton = document.querySelectorAll('.delete-button')
     deleteButton.forEach(a => {
       a.addEventListener('click', (event) => {
-        axios.delete(`${baseURL}/vibe/images/${a.dataset.id}`)
-        // console.log(a.dataset.id)
-        window.location.replace('edit.html')
+        axios.delete(`${baseURL}/vibe/images/${a.dataset.id}`).then(response => {
+          window.location.replace('edit.html')
+        })
       })
     })
   })
-
-imageTitle.forEach((a, idx) => {
-  if (imageArray[idx] !== undefined) {
-    a.innerHTML = imageArray[idx].title
-  } else
-    a.innerHTML = 'placeholder'
-})
-imageText.forEach((a, idx) => {
-  if (imageArray[idx] !== undefined)
-    a.innerHTML = imageArray[idx].description
-
-  else
-    a.innerHTML = 'placeholder'
-})
