@@ -4,7 +4,9 @@ id = JSON.parse(localStorage.getItem('user-id'))
 saveButton = document.querySelector('#save-button')
 console.log(id);
 
-// Save Button after making edits
+// ===============================================
+// Save button after making edits
+// ===============================================
 
 saveButton.addEventListener('click', (event) => {
   let bioForm = document.querySelector('#bio-form').value
@@ -45,7 +47,9 @@ saveButton.addEventListener('click', (event) => {
   }
 })
 
-// Get media for user
+// ===============================================
+// GET media for user
+// ===============================================
 
 axios.get(`${baseURL}/vibe/images/${id}`)
   .then(response => {
@@ -87,7 +91,10 @@ axios.get(`${baseURL}/vibe/images/${id}`)
       }
     })
 
-    // DESTROY
+    // ===============================================
+    // DESTROY media
+    // ===============================================
+
     let deleteButton = document.querySelectorAll('.delete-button')
     deleteButton.forEach(a => {
       a.addEventListener('click', (event) => {

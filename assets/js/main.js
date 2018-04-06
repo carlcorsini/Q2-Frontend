@@ -15,7 +15,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
       users.forEach(a => {
         if (a.email === email && a.password === password) {
           stashedVariable = a.id
-          // console.log(typeof a.id);
           localStorage.setItem('user-id', JSON.stringify(a.id))
           localStorage.setItem('logged-in', JSON.stringify('yes'))
         }
@@ -39,10 +38,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
     const friendName = document.querySelectorAll('.friend-name')
 
     // ===============================================
-    // GET: READ USER PROFILE
+    // GET user data
     // ===============================================
-
-    //Get user data
 
     axios.get(`${baseURL}/vibe/${stashedVariable}`)
       .then(response => {
@@ -56,7 +53,9 @@ document.addEventListener("DOMContentLoaded", (event) => {
         })
       })
 
-    // Get media for user
+    // ===============================================
+    // GET media for user
+    // ===============================================
 
     axios.get(`${baseURL}/vibe/images/${stashedVariable}`)
       .then(response => {
@@ -109,7 +108,9 @@ document.addEventListener("DOMContentLoaded", (event) => {
         })
       })
 
-    // get user friends
+    // ===============================================
+    // GET user friends
+    // ===============================================
 
     axios.get(`${baseURL}/vibe/friends/${stashedVariable}`).then(response => {
       let followee = response.data.result
@@ -140,7 +141,9 @@ document.addEventListener("DOMContentLoaded", (event) => {
       })
     })
 
-    // hover over friend name
+    // ===============================================
+    // Hover over friend name
+    // ===============================================
 
     friendPic = document.querySelectorAll('.friends-pics')
     friendsName = document.querySelectorAll('.friend-name')
@@ -154,8 +157,11 @@ document.addEventListener("DOMContentLoaded", (event) => {
       }, false);
     })
 
-    // add event listener on click, local storage set item with their user id from html data-followee=""
+    // ===============================================
+    // Click to view user friend's profile
+    // ===============================================
 
+    // add event listener on click, local storage set item with their user id from html data-followee=""
     friendPic.forEach(a => {
       a.addEventListener('click', (event) => {
         localStorage.setItem('friend-id', JSON.stringify(Number(a.dataset.followee)))
@@ -163,7 +169,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     })
 
     // ===============================================
-    // SIGNOUT
+    // Signout button
     // ===============================================
 
     const signOutButton = document.querySelector('#sign-out-button')

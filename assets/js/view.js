@@ -21,10 +21,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
   const friendName = document.querySelectorAll('.friend-name')
 
   // ===============================================
-  // GET: READ USER PROFILE
+  // GET user data
   // ===============================================
-
-  //Get user data
 
   axios.get(`${baseURL}/vibe/${stashedVariable}`)
     .then(response => {
@@ -38,7 +36,9 @@ document.addEventListener("DOMContentLoaded", (event) => {
       })
     })
 
-  // Get images for user
+  // ===============================================
+  // GET images for user
+  // ===============================================
 
   axios.get(`${baseURL}/vibe/images/${stashedVariable}`)
     .then(response => {
@@ -66,7 +66,9 @@ document.addEventListener("DOMContentLoaded", (event) => {
       })
     })
 
-  // get user friends
+  // ===============================================
+  // GET user friends
+  // ===============================================
 
   axios.get(`${baseURL}/vibe/friends/${stashedVariable}`).then(response => {
     let followee = response.data.result
@@ -97,7 +99,10 @@ document.addEventListener("DOMContentLoaded", (event) => {
     })
   })
 
-  // hover over friend name
+  // ===============================================
+  // Hover over friend name
+  // ===============================================
+
   friendPics = document.querySelectorAll('.friends-pics')
   console.log('this is the friends pic stuff === ', friendsPics);
   friendsName = document.querySelectorAll('.friend-name')
@@ -114,6 +119,11 @@ document.addEventListener("DOMContentLoaded", (event) => {
     }, false);
   })
 
+
+  // ===============================================
+  // Click to view user friend's profile
+  // ===============================================
+
   // add event listener on click, local storage set item with their user id from html data-followee=""
   friendPics.forEach((a, idx) => {
     a.addEventListener('click', (event) => {
@@ -121,7 +131,10 @@ document.addEventListener("DOMContentLoaded", (event) => {
     })
   })
 
-  // follow button 
+  // ===============================================
+  // Follow button for friends
+  // ===============================================
+
   const followButton = document.querySelector('#follow-button')
   followButton.addEventListener('click', (event) => {
     axios.post(`${baseURL}/vibe/friends/`, {
@@ -134,10 +147,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
   })
 
   // ===============================================
-  // SIGNOUT
+  // Signout button
   // ===============================================
-
-
 
   const signOutButton = document.querySelector('#sign-out-button')
   signOutButton.addEventListener('click', (event) => {
