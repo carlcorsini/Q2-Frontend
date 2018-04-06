@@ -56,25 +56,47 @@ document.addEventListener("DOMContentLoaded", (event) => {
         })
       })
 
-    // Get images for user
+    // Get media for user
 
     axios.get(`${baseURL}/vibe/images/${stashedVariable}`)
       .then(response => {
         let imageArray = response.data.result
-        // let videoArray
-        images.forEach((a, idx) => {
-          if (imageArray[idx] !== undefined)
-            a.src = imageArray[idx].url
+        let userMedia = document.querySelector('.user-media')
 
-          else
-            a.src = 'http://via.placeholder.com/275x275'
+        imageArray.reverse()
+        imageArray.forEach(image => {
+          console.log(image.url)
+          console.log(image.type)
+          if (image.type === 'video') {
+            $(userMedia).append(`
+          <div class="col-md-6 col-lg-4">
+            <div class="card mb-3">
+              <iframe width="360" height="215" src="${image.url.replace(/watch\?v=/, 'embed/')}" frameborder="0"  allowfullscreen></iframe>
+              <div class="card-body">
+                <h4 class="card-title">${image.title}</h4>
+                <p class="card-text">${image.description}</p>
+              </div>
+            </div>
+          </div>        
+        `);
+          } else {
+            $(userMedia).append(`
+          <div class="col-md-6 col-lg-4">
+            <div class="card mb-3">
+              <img width="360" height="215" class="card-img-top" src="${image.url}" alt="media">
+              <div class="card-body">
+                <h4 class="card-title">${image.title}</h4>
+                <p class="card-text">${image.description}</p>
+              </div>
+            </div>
+          </div>        
+        `);
+          }
         })
 
-        // div.appendchild(<iframe width="560" height="315" src="a.url" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>)
         imageTitle.forEach((a, idx) => {
           if (imageArray[idx] !== undefined) {
             a.innerHTML = imageArray[idx].title
-            // console.log(imageArray[idx].title);
           } else
             a.innerHTML = 'placeholder'
         })
@@ -119,13 +141,14 @@ document.addEventListener("DOMContentLoaded", (event) => {
     })
 
     // hover over friend name
+
     friendPic = document.querySelectorAll('.friends-pics')
     friendsName = document.querySelectorAll('.friend-name')
 
     friendPic.forEach((a, idx) => {
       a.addEventListener('mouseover', (event) => {
         friendsName[idx].style.display = 'block'
-        setTimeout(function() {
+        setTimeout(function () {
           friendsName[idx].style.display = 'none'
         }, 2000);
       }, false);
