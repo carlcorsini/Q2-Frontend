@@ -1,5 +1,5 @@
 // login/ DATE
-baseURL = 'https://still-springs-97508.herokuapp.com/'
+baseURL = 'https://still-springs-97508.herokuapp.com'
 
 
 // var dateControl = document.querySelector('#example-date-input');
