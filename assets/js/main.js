@@ -15,7 +15,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
       users.forEach(a => {
         if (a.email === email && a.password === password) {
           stashedVariable = a.id
-          // console.log(typeof a.id);
           localStorage.setItem('user-id', JSON.stringify(a.id))
           localStorage.setItem('logged-in', JSON.stringify('yes'))
         }
@@ -39,10 +38,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
     const friendName = document.querySelectorAll('.friend-name')
 
     // ===============================================
-    // GET: READ USER PROFILE
+    // GET user data
     // ===============================================
-
-    //Get user data
 
     axios.get(`${baseURL}/vibe/${stashedVariable}`)
       .then(response => {
@@ -56,25 +53,49 @@ document.addEventListener("DOMContentLoaded", (event) => {
         })
       })
 
-    // Get images for user
+    // ===============================================
+    // GET media for user
+    // ===============================================
 
     axios.get(`${baseURL}/vibe/images/${stashedVariable}`)
       .then(response => {
         let imageArray = response.data.result
-        // let videoArray
-        images.forEach((a, idx) => {
-          if (imageArray[idx] !== undefined)
-            a.src = imageArray[idx].url
+        let userMedia = document.querySelector('.user-media')
 
-          else
-            a.src = 'http://via.placeholder.com/275x275'
+        imageArray.reverse()
+        imageArray.forEach(image => {
+          console.log(image.url)
+          console.log(image.type)
+          if (image.type === 'video') {
+            $(userMedia).append(`
+          <div class="col-md-6 col-lg-4">
+            <div class="card mb-3">
+              <iframe width="360" height="215" src="${image.url.replace(/watch\?v=/, 'embed/')}" frameborder="0"  allowfullscreen></iframe>
+              <div class="card-body">
+                <h4 class="card-title">${image.title}</h4>
+                <p class="card-text">${image.description}</p>
+              </div>
+            </div>
+          </div>        
+        `);
+          } else {
+            $(userMedia).append(`
+          <div class="col-md-6 col-lg-4">
+            <div class="card mb-3">
+              <img width="360" height="215" class="card-img-top" src="${image.url}" alt="media">
+              <div class="card-body">
+                <h4 class="card-title">${image.title}</h4>
+                <p class="card-text">${image.description}</p>
+              </div>
+            </div>
+          </div>        
+        `);
+          }
         })
 
-        // div.appendchild(<iframe width="560" height="315" src="a.url" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>)
         imageTitle.forEach((a, idx) => {
           if (imageArray[idx] !== undefined) {
             a.innerHTML = imageArray[idx].title
-            // console.log(imageArray[idx].title);
           } else
             a.innerHTML = 'placeholder'
         })
@@ -87,7 +108,9 @@ document.addEventListener("DOMContentLoaded", (event) => {
         })
       })
 
-    // get user friends
+    // ===============================================
+    // GET user friends
+    // ===============================================
 
     axios.get(`${baseURL}/vibe/friends/${stashedVariable}`).then(response => {
       let followee = response.data.result
@@ -118,21 +141,27 @@ document.addEventListener("DOMContentLoaded", (event) => {
       })
     })
 
-    // hover over friend name
+    // ===============================================
+    // Hover over friend name
+    // ===============================================
+
     friendPic = document.querySelectorAll('.friends-pics')
     friendsName = document.querySelectorAll('.friend-name')
 
     friendPic.forEach((a, idx) => {
       a.addEventListener('mouseover', (event) => {
         friendsName[idx].style.display = 'block'
-        setTimeout(function() {
+        setTimeout(function () {
           friendsName[idx].style.display = 'none'
         }, 2000);
       }, false);
     })
 
-    // add event listener on click, local storage set item with their user id from html data-followee=""
+    // ===============================================
+    // Click to view user friend's profile
+    // ===============================================
 
+    // add event listener on click, local storage set item with their user id from html data-followee=""
     friendPic.forEach(a => {
       a.addEventListener('click', (event) => {
         localStorage.setItem('friend-id', JSON.stringify(Number(a.dataset.followee)))
@@ -140,7 +169,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     })
 
     // ===============================================
-    // SIGNOUT
+    // Signout button
     // ===============================================
 
     const signOutButton = document.querySelector('#sign-out-button')
