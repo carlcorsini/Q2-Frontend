@@ -1,4 +1,4 @@
-baseURL = 'https://still-springs-97508.herokuapp.com/'
+baseURL = 'https://still-springs-97508.herokuapp.com'
 loggedIn = JSON.parse(localStorage.getItem('logged-in'))
 id = JSON.parse(localStorage.getItem('user-id'))
 saveButton = document.querySelector('#save-button')
