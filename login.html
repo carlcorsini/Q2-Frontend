@@ -19,7 +19,7 @@
     <link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png">
     <link rel="icon" type="image/png" href="assets/img/favicon.png">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Landing Page - Now Ui Kit by Creative Tim</title>
+    <title>The Vibe</title>
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no" name="viewport">
     <!--     Fonts and icons     -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet">
@@ -35,32 +35,30 @@
 
   <body>
     <!-- navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <nav class="navbar navbar-expand-lg bg-primary fixed-top">
+      <img class="logo" src="assets/img/v.svg" alt="">
 
-      <a class="navbar-brand" href="#" target="_blank">The Vibe</a>
       <!-- login form -->
       <form id="login-form" action="index.html" method="get" class="navbar-brand order-1 mr-0">
         <div class="form-row">
           <!-- Email login -->
-          <div class="col-sm-5 col-lg-5">
+          <div class="col-sm-5 col-md-5">
             <div class="form-group">
-
               <label class="sr-only" for="inputemail">email</label>
               <input name="email" id="email-login" type="email" class="form-control" placeholder="email">
             </div>
-
           </div>
           <!-- Password login -->
-          <div class="col-sm-5 col-lg-4">
+          <div class="col-sm-5 col-md-4">
             <label class="sr-only" for="inputpassword">password</label>
             <div class="input-group">
               <input name="password" id="password-login" type="password" class="form-control" placeholder="password">
             </div>
           </div>
           <!-- Button Login -->
-          <div class="col-sm-5 col-lg-3">
+          <div class="col-sm-1 col-sm-1">
             <div class="form-group">
-              <button id="login-submit" type="submit" class="btn btn-secondary" value="submit">Log In</button>
+              <button id="login-submit" type="submit" class="btn btn-danger btn-md btn-round" value="submit">Log In</button>
             </div>
           </div>
         </div>
@@ -74,93 +72,80 @@
         </div>
       </div>
     </nav>
-    <!-- /navbar -->
+    <br>
+    <br>
+    <br>
+    <br>
 
     <!-- jumbotron -->
-    <div class="container text-sm-center pt-5">
-      <img src="assets/img/v.svg" alt="">
+    <div id="changecolor">
+      <div class="container text-sm-center pt-5">
+        <img src="assets/img/v.svg" alt="">
 
-      <h1 class="display-2">The Vibe</h1>
-      <p class="lead font-weight-bold">Where to connect with folks you vibe with.</p>
+        <h1 class="display-3">The Vibe</h1>
+        <p class="lead" id="h2">Where to connect with friends you vibe with.</p>
 
-      <div class="" role="group" aria-label="Callout buttons">
-        <!-- Button to Open the Modal -->
-        <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal">Create Profile</button>
+        <div class="" role="group" aria-label="Callout buttons">
+          <!-- Button to Open the Modal -->
+          <button type="button" class="btn btn-success btn-lg" id='buttontext' data-toggle="modal" data-target="#myModal">Create Profile</button>
 
-        <!-- The Modal -->
+          <!-- The Modal -->
+          <div class="modal fade" id="myModal">
+            <div class="modal-dialog">
+              <div class="modal-content">
 
-        <div class="modal fade" id="myModal">
-          <div class="modal-dialog">
-            <div class="modal-content">
+                <!-- Modal Header -->
+                <div class="modal-header">
 
-              <!-- Modal Header -->
-              <div class="modal-header">
+                  <h4 class="modal-title">Create Profile</h4>
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
 
-                <h4 class="modal-title">Create Profile</h4>
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-              </div>
+                <!-- Modal body -->
+                <div class="modal-body">
+                  <form action="index.html" method="get">
+                    <div class="row">
+                      <!-- First Name -->
+                      <div class="col-md-6">
+                        <div class="form-group">
 
-              <!-- Modal body -->
-              <div class="modal-body">
-                <form action="index.html" method="get">
-                  <div class="row">
-                    <!-- First Name -->
-                    <div class="col-md-6">
-                      <div class="form-group">
-                        <i class="fa fa-user prefix grey-text"></i>
-
-                        <input id="create-first-name" type="text" class="form-control" placeholder="First name" />
+                          <input id="create-first-name" type="text" class="form-control" placeholder="First name" />
+                        </div>
                       </div>
-                    </div>
-                    <!-- Last Name -->
-                    <div class="col-md-6">
-                      <div class="form-group">
-                        <input id="create-last-name" type="text" class="form-control" placeholder="Last name" />
+                      <!-- Last Name -->
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <input id="create-last-name" type="text" class="form-control" placeholder="Last name" />
+                        </div>
                       </div>
+                      <!-- /.col -->
                     </div>
-                    <!-- /.col -->
-                  </div>
-                  <!-- /.row -->
-
-                  <!-- Birthday -->
-                  <!-- <div class="form-group col-md-12">
-                    <label for="birthday">Birthday</label>
-                    <input class="form-control" type="date" id="example-date-input">
-                  </div> -->
-                  <!-- Email -->
-                  <div class="form-group col-md-12">
-                    <label for="exampleInputEmail1">Email </label>
-                    <input id="create-email" type="email" class="form-control" placeholder="Enter email">
-                  </div>
-
-                  <!-- Passowrd -->
-                  <div class="form-group col-md-12">
-
-                    <label for="exampleInputPassword1">Password</label>
-                    <input id="create-password" type="password" class="form-control" placeholder="New password" pattern=".{8,12}" required title="8 to 12 characters">
-                  </div>
-
-
-                  <div class="modal-body">
-
-                    <button id="create-button" type="button" class="btn btn-primary" value="submit">Submit</button>
-                  </div>
-
-                </form>
-
+                    <!-- Email -->
+                    <div class="form-group col-md-13">
+                      <label for="exampleInputEmail1">Email </label>
+                      <input id="create-email" type="email" class="form-control" placeholder="Enter email">
+                    </div>
+                    <!-- Passowrd -->
+                    <div class="form-group col-md-13">
+                      <label for="exampleInputPassword1">Password</label>
+                      <input id="create-password" type="password" class="form-control" placeholder="New password" pattern=".{8,12}" required title="8 to 12 characters">
+                    </div>
+                    <!-- Submit -->
+                    <div class="modal-body">
+                      <button id="create-button" type="button" class="btn btn-primary" value="submit">Submit</button>
+                    </div>
+                  </form>
+                </div>
               </div>
             </div>
           </div>
-
-
+          <!-- EMPTY SPACE -->
+          <div class="empty">
+          </div>
         </div>
-
-        <div class="empty">
-        </div>
-
-
       </div>
     </div>
+
     <footer class="footer footer-default">
       <div class="container">
         <nav>

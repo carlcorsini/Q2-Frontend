@@ -122,7 +122,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     friendPic.forEach((a, idx) => {
       a.addEventListener('mouseover', (event) => {
         friendsName[idx].style.display = 'block'
-        setTimeout(function () {
+        setTimeout(function() {
           friendsName[idx].style.display = 'none'
         }, 2000);
       }, false);
