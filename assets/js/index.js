@@ -1,9 +1,8 @@
-// login/ DATE
-baseURL = 'https://still-springs-97508.herokuapp.com'
-
-
-// var dateControl = document.querySelector('#example-date-input');
-// dateControl.value = '2017-06-01';
+if (process.env.NODE_ENV === 'production') {
+  baseURL = 'https://still-springs-97508.herokuapp.com'
+} else {
+  baseURL = 'https://localhost:3000'
+}
 
 const loginForm = document.querySelector('#login-form')
 console.log(loginForm);
