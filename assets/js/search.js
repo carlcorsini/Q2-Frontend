@@ -1,8 +1,5 @@
-if (process.env.NODE_ENV === 'production') {
-  baseURL = 'https://still-springs-97508.herokuapp.com'
-} else {
-  baseURL = 'https://localhost:3000'
-}
+baseURL = 'https://still-springs-97508.herokuapp.com'
+
 
 
 document.addEventListener("DOMContentLoaded", (event) => {

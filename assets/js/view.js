@@ -1,8 +1,4 @@
-if (process.env.NODE_ENV === 'production') {
-  baseURL = 'https://still-springs-97508.herokuapp.com'
-} else {
-  baseURL = 'https://localhost:3000'
-}
+baseURL = 'https://still-springs-97508.herokuapp.com'
 
 query = window.location.search
 email = query.replace('?email=', '').replace('%40', '@').split('&').shift()
