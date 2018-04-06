@@ -5,7 +5,7 @@ password = query.split('&').pop().replace('password=', '')
 var stashedVariable
 loggedIn = JSON.parse(localStorage.getItem('logged-in'))
 friend = JSON.parse(localStorage.getItem('friend-id'))
-let userId = JSON.parse(localStorage.getItem('user-id'))
+userId = JSON.parse(localStorage.getItem('user-id'))
 
 document.addEventListener("DOMContentLoaded", (event) => {
   stashedVariable = friend
