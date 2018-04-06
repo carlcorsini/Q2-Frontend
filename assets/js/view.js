@@ -5,6 +5,7 @@ password = query.split('&').pop().replace('password=', '')
 var stashedVariable
 loggedIn = JSON.parse(localStorage.getItem('logged-in'))
 friend = JSON.parse(localStorage.getItem('friend-id'))
+let userId = JSON.parse(localStorage.getItem('user-id'))
 
 document.addEventListener("DOMContentLoaded", (event) => {
   stashedVariable = friend
@@ -126,10 +127,10 @@ document.addEventListener("DOMContentLoaded", (event) => {
   followButton.addEventListener('click', (event) => {
     axios.post(`${baseURL}/vibe/friends/`, {
         friend,
-        stashedVariable
+        userId
       })
       .then(result => {
-        console.log('this is the result === ', result);
+        window.location.replace('view.html')
       })
   })
 
