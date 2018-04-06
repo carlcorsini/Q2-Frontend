@@ -1,4 +1,4 @@
-baseURL = 'http://localhost:3000'
+baseURL = 'https://still-springs-97508.herokuapp.com/'
 
 loggedIn = JSON.parse(localStorage.getItem('logged-in'))
 id = JSON.parse(localStorage.getItem('user-id'))
