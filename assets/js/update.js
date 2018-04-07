@@ -39,13 +39,13 @@ saveButton.addEventListener('click', (event) => {
     bio: bioForm,
     profile_pic: updateProfilePic
   }).then(response => {})
-  if (imageUrl.length && videoUrl.length) window.location.replace('index.html')
+  if (mediaUrl.length && videoUrl.length) window.location.replace('index.html')
 
 
 
   if (videoUrl.length < 1) {
     axios.post(`${baseURL}/vibe/media/${id}`, {
-      url: imageUrl,
+      url: mediaUrl,
       type: 'image',
       title: uploadMediaTitle,
       description: uploadMediaDescription,
@@ -54,7 +54,7 @@ saveButton.addEventListener('click', (event) => {
       window.location.replace('index.html')
     })
   }
-  if (imageUrl.length < 1) {
+  if (mediaUrl.length < 1) {
     axios.post(`${baseURL}/vibe/media/${id}`, {
       url: videoUrl,
       type: 'video',
