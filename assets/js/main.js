@@ -1,27 +1,27 @@
-baseURL = 'https://still-springs-97508.herokuapp.com'
+baseURL = 'http://localhost:3000'
 
 
 query = window.location.search
 email = query.replace('?email=', '').replace('%40', '@').split('&').shift()
 password = query.split('&').pop().replace('password=', '')
-var stashedVariable
+var userId
 loggedIn = JSON.parse(localStorage.getItem('logged-in'))
 id = JSON.parse(localStorage.getItem('user-id'))
 
 document.addEventListener("DOMContentLoaded", (event) => {
   axios.get(`${baseURL}/vibe`).then(response => {
     if (loggedIn === 'yes') {
-      stashedVariable = id
+      userId = id
     } else if (loggedIn != 'yes') {
       let users = response.data.users
       users.forEach(a => {
         if (a.email === email && a.password === password) {
-          stashedVariable = a.id
+          userId = a.id
           localStorage.setItem('user-id', JSON.stringify(a.id))
           localStorage.setItem('logged-in', JSON.stringify('yes'))
         }
       })
-      if (stashedVariable == undefined) {
+      if (userId == undefined) {
         window.location.replace('login.html')
         localStorage.setItem('logged-in', JSON.stringify('no'))
         localStorage.setItem('user-id', JSON.stringify(''))
@@ -33,9 +33,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
     const friends = document.querySelector('#friends')
     const bio = document.querySelector('#bio')
     const interests = document.querySelector('#interests')
-    const images = document.querySelectorAll('.card-img-top')
-    const imageTitle = document.querySelectorAll('.card-title')
-    const imageText = document.querySelectorAll('.card-text')
+    const mediaTitle = document.querySelectorAll('.card-title')
+    const mediaText = document.querySelectorAll('.card-text')
     const friendsPics = document.querySelectorAll('.friends-pics')
     const friendName = document.querySelectorAll('.friend-name')
 
@@ -43,9 +42,9 @@ document.addEventListener("DOMContentLoaded", (event) => {
     // GET user data
     // ===============================================
 
-    axios.get(`${baseURL}/vibe/${stashedVariable}`)
+    axios.get(`${baseURL}/vibe/${userId}`)
       .then(response => {
-        axios.get(`${baseURL}/vibe/friends/${stashedVariable}`).then(response2 => {
+        axios.get(`${baseURL}/vibe/friends/${userId}`).then(response2 => {
           userName.innerHTML = `${response.data.result[0].name}`
           profPic.src = `${response.data.result[0].profile_pic}`
           location.innerHTML = `${response.data.result[0].location}`
@@ -58,15 +57,13 @@ document.addEventListener("DOMContentLoaded", (event) => {
     // GET media for user
     // ===============================================
 
-    axios.get(`${baseURL}/vibe/images/${stashedVariable}`)
+    axios.get(`${baseURL}/vibe/media/${userId}`)
       .then(response => {
-        let imageArray = response.data.result
+        let mediaArray = response.data.result
         let userMedia = document.querySelector('.user-media')
 
-        imageArray.reverse()
-        imageArray.forEach(image => {
-          console.log(image.url)
-          console.log(image.type)
+        mediaArray.reverse()
+        mediaArray.forEach(image => {
           if (image.type === 'video') {
             $(userMedia).append(`
           <div class="col-md-6 col-lg-4">
@@ -93,35 +90,21 @@ document.addEventListener("DOMContentLoaded", (event) => {
         `);
           }
         })
-
-        imageTitle.forEach((a, idx) => {
-          if (imageArray[idx] !== undefined) {
-            a.innerHTML = imageArray[idx].title
-          } else
-            a.innerHTML = 'placeholder'
-        })
-        imageText.forEach((a, idx) => {
-          if (imageArray[idx] !== undefined)
-            a.innerHTML = imageArray[idx].description
-
-          else
-            a.innerHTML = 'placeholder'
-        })
       })
 
     // ===============================================
     // GET user friends
     // ===============================================
 
-    axios.get(`${baseURL}/vibe/friends/${stashedVariable}`).then(response => {
+    axios.get(`${baseURL}/vibe/friends/${userId}`).then(response => {
       let followee = response.data.result
       let friendsPicsArray = []
       let friendsIdArray = []
       let friendNameArray = []
       followee.forEach(a => {
-        axios.get(`${baseURL}/vibe/${a.followee_id}`).then(response => {
+        axios.get(`${baseURL}/vibe/${a.follower_id}`).then(response => {
           friendsPicsArray.push(response.data.result[0].profile_pic)
-          friendsIdArray.push(a.followee_id)
+          friendsIdArray.push(a.follower_id)
           friendNameArray.push(response.data.result[0].name)
           friendsPics.forEach((b, idx) => {
             if (friendsPicsArray[idx] !== undefined) {

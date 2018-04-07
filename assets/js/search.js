@@ -1,5 +1,4 @@
-baseURL = 'https://still-springs-97508.herokuapp.com'
-
+baseURL = 'http://localhost:3000'
 
 
 document.addEventListener("DOMContentLoaded", (event) => {
