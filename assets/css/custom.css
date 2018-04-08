@@ -3,6 +3,10 @@
   height: 20px;
 }
 
+#save-button {
+  margin-left: 45%;
+}
+
 /* User Header 
 --------------------- */
 
@@ -15,6 +19,12 @@
 
 .map-icon {
   width: 20px;
+  float: left;
+}
+
+.map-icon-edit {
+  width: 15px;
+  height: 15px;
   float: left;
 }
 
@@ -60,6 +70,21 @@ the User Header section will
 become centered
 --------------------- */
 
+@media (max-width: 1024px) {
+  #save-button {
+    margin-left: 43%;
+  }
+  #profile-pic {
+    height: 200px;
+    width: 200px;
+    object-fit: cover;
+    object-position: center;
+  }
+  #user-name {
+    font-size: 32px;
+  }
+}
+
 @media (max-width: 950px) {
   #profile {
     text-align: center;
@@ -76,11 +101,73 @@ become centered
   .button-col {
     margin-top: 20px;
   }
+  #save-button {
+    margin-left: 40%;
+  }
+  .map-icon-edit {
+    width: 30px;
+    height: 30px;
+    float: none;
+  }
   .friends-pics {
     height: 93px;
     width: 93px;
     object-fit: cover;
     object-position: center;
     border: solid 2px #f96332;
+  }
+  .update-titles {
+    text-align: center;
+  }
+  #profile-pic {
+    height: 200px;
+    width: 200px;
+    object-fit: cover;
+    object-position: center;
+  }
+  #user-name {
+    font-size: 32px;
+  }
+}
+
+@media (max-width: 750px) {
+  #save-button {
+    margin-left: 26%;
+  }
+}
+
+@media (max-width: 414px) {
+  #save-button {
+    margin-left: 29%;
+  }
+}
+
+@media (max-width: 375px) {
+  #save-button {
+    margin-left: 20%;
+  }
+  #profile-pic {
+    height: 150px;
+    width: 150px;
+    object-fit: cover;
+    object-position: center;
+  }
+  #user-name {
+    font-size: 32px;
+  }
+}
+
+@media (max-width: 320px) {
+  #save-button {
+    margin-left: -1%;
+  }
+  #profile-pic {
+    height: 140px;
+    width: 140px;
+    object-fit: cover;
+    object-position: center;
+  }
+  #user-name {
+    font-size: 32px;
   }
 }

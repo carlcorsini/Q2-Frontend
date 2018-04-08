@@ -8,12 +8,13 @@ updateInterests = document.querySelector('#interest-update')
 updateProfilePic = document.querySelector('#update-profile-pic')
 userName = document.querySelector('#user-name')
 profPic = document.querySelector('#profile-pic')
+saveMediaButton =
 
-// ===============================================
-// Fill in form data
-// ===============================================
+  // ===============================================
+  // Fill in form data
+  // ===============================================
 
-axios.get(`${baseURL}/vibe/${id}`)
+  axios.get(`${baseURL}/vibe/${id}`)
   .then(response => {
     userName.innerHTML = `${response.data.result[0].name}`
     profPic.src = `${response.data.result[0].profile_pic}`
@@ -38,9 +39,15 @@ saveButton.addEventListener('click', (event) => {
     bio: bioForm,
     profile_pic: updateProfilePic
   }).then(response => {})
-  if (mediaUrl.length && videoUrl.length) window.location.replace('index.html')
+  if (mediaUrl.length < 1 && videoUrl.length < 1) window.location.replace('index.html')
+})
 
-  if (videoUrl.length < 1) {
+// ===============================================
+// Save button for media
+// ===============================================
+
+saveButton.addEventListener('click', (event) => {
+  if (videoUrl.length > 1) {
     axios.post(`${baseURL}/vibe/media/${id}`, {
       url: mediaUrl,
       type: 'image',
@@ -51,7 +58,7 @@ saveButton.addEventListener('click', (event) => {
       window.location.replace('index.html')
     })
   }
-  if (mediaUrl.length < 1) {
+  if (mediaUrl.length > 1) {
     axios.post(`${baseURL}/vibe/media/${id}`, {
       url: videoUrl,
       type: 'video',
