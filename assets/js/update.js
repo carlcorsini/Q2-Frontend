@@ -8,13 +8,13 @@ updateInterests = document.querySelector('#interest-update')
 updateProfilePic = document.querySelector('#update-profile-pic')
 userName = document.querySelector('#user-name')
 profPic = document.querySelector('#profile-pic')
-saveMediaButton =
+saveMediaButton = document.querySelector('#save-media-button')
 
-  // ===============================================
-  // Fill in form data
-  // ===============================================
+// ===============================================
+// Fill in form data
+// ===============================================
 
-  axios.get(`${baseURL}/vibe/${id}`)
+axios.get(`${baseURL}/vibe/${id}`)
   .then(response => {
     userName.innerHTML = `${response.data.result[0].name}`
     profPic.src = `${response.data.result[0].profile_pic}`
@@ -32,22 +32,25 @@ saveButton.addEventListener('click', (event) => {
   let updateProfilePic = document.querySelector('#update-profile-pic').value
   let mediaUrl = document.querySelector('#upload-image').value
   let videoUrl = document.querySelector('#upload-video').value
-  let uploadMediaTitle = document.querySelector('#upload-media-title').value
-  let uploadMediaDescription = document.querySelector('#upload-media-description').value
 
   axios.put(`${baseURL}/vibe/${id}`, {
     bio: bioForm,
     profile_pic: updateProfilePic
-  }).then(response => {})
-  if (mediaUrl.length < 1 && videoUrl.length < 1) window.location.replace('index.html')
+  }).then(response => {
+    if (mediaUrl.length < 1 && videoUrl.length < 1) window.location.replace('index.html')
+  })
 })
 
 // ===============================================
 // Save button for media
 // ===============================================
 
-saveButton.addEventListener('click', (event) => {
-  if (videoUrl.length > 1) {
+saveMediaButton.addEventListener('click', (event) => {
+  let mediaUrl = document.querySelector('#upload-image').value
+  let videoUrl = document.querySelector('#upload-video').value
+  let uploadMediaTitle = document.querySelector('#upload-media-title').value
+  let uploadMediaDescription = document.querySelector('#upload-media-description').value
+  if (videoUrl.length < 1) {
     axios.post(`${baseURL}/vibe/media/${id}`, {
       url: mediaUrl,
       type: 'image',
@@ -58,7 +61,7 @@ saveButton.addEventListener('click', (event) => {
       window.location.replace('index.html')
     })
   }
-  if (mediaUrl.length > 1) {
+  if (mediaUrl.length < 1) {
     axios.post(`${baseURL}/vibe/media/${id}`, {
       url: videoUrl,
       type: 'video',
