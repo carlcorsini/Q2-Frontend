@@ -88,7 +88,9 @@ axios.get(`${baseURL}/vibe/media/${id}`)
         $(userMedia).append(`
           <div class="col-md-6 col-lg-4">
             <div class="card mb-3">
-              <iframe width="360" height="215" style="text-align:center" src="${media.url.replace(/watch\?v=/, 'embed/')}" frameborder="0" allowfullscreen></iframe>
+              <div class="embed-responsive embed-responsive-4by3">
+                <iframe class="embed-responsive-item" src="${media.url.replace(/watch\?v=/, 'embed/')}"></iframe>
+              </div>
               <div class="card-body">
                 <h4 class="card-title">${media.title}</h4>
                 <p class="card-text">${media.description}</p>

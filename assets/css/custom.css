@@ -7,6 +7,10 @@
   margin-left: 45%;
 }
 
+#save-media-button {
+  margin-left: 45%;
+}
+
 /* User Header 
 --------------------- */
 
@@ -81,6 +85,9 @@ become centered
   #save-button {
     margin-left: 43%;
   }
+  #save-media-button {
+    margin-left: 43%;
+  }
   #profile-pic {
     height: 200px;
     width: 200px;
@@ -109,7 +116,10 @@ become centered
     margin-top: 20px;
   }
   #save-button {
-    margin-left: 40%;
+    margin-left: 36%;
+  }
+  #save-media-button {
+    margin-left: 36%;
   }
   .map-icon-edit {
     width: 30px;
@@ -141,17 +151,26 @@ become centered
   #save-button {
     margin-left: 26%;
   }
+  #save-media-button {
+    margin-left: 26%;
+  }
 }
 
 @media (max-width: 414px) {
   #save-button {
-    margin-left: 29%;
+    margin-left: 21%;
+  }
+  #save-media-button {
+    margin-left: 21%;
   }
 }
 
 @media (max-width: 375px) {
   #save-button {
-    margin-left: 20%;
+    margin-left: 19%;
+  }
+  #save-media-button {
+    margin-left: 19%;
   }
   #profile-pic {
     height: 150px;
@@ -166,7 +185,10 @@ become centered
 
 @media (max-width: 320px) {
   #save-button {
-    margin-left: -1%;
+    margin-left: 8%;
+  }
+  #save-media-button {
+    margin-left: 8%;
   }
   #profile-pic {
     height: 140px;
