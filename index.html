@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no" name="viewport">
     <title>The Vibe</title>
+    <link rel="icon" href="assets/img/logo-icon.png">
     <!--     Fonts and icons     -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet">
@@ -14,7 +15,6 @@
     <link href="assets/css/bootstrap.min.css" rel="stylesheet">
     <link href="assets/css/now-ui-kit.css?v=1.1.0" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="assets/css/custom.css">
-
   </head>
 
   <body>
@@ -23,40 +23,27 @@
       <div class="container">
         <img class="logo1" src="assets/img/v.svg" alt="">
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-
         </div>
         <div class="collapse navbar-collapse justify-content-end" id="example-navbar-icons">
           <ul class="navbar-nav">
-
             <div class="navbar-nav">
               <span class="sr-only">(current)</span>
-
-
               <a class="nav-item nav-link" id="sign-out-button" href="results.html"><i class="fa fa-search" aria-hidden="true"></i></a>
             </div>
-
             <li class="nav-item">
               <a class="nav-link" href="index.html"><i class="now-ui-icons users_single-02" aria-hidden="true"></i></a>
             </li>
-
-
             <li class="nav-item dropdown">
               <a href="index.html" class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown">
                   <i class="now-ui-icons ui-1_settings-gear-63" aria-hidden="true"></i>
               </a>
-
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
                 <a class="dropdown-header">Settings</a>
                 <a class="dropdown-item" href="view.html">Edit Page</a>
                 <a class="dropdown-item" href="login.html">Sign Out</a>
               </div>
             </li>
-
           </ul>
-
-
-
-
         </div>
       </div>
     </nav>
@@ -64,54 +51,55 @@
     </div>
     </div>
     </nav>
+<!--  ./navbar  -->
 
-
-    <!-- container -->
-    <div class="container mt-5" id="newcolor">
-      <div id="profile" class="row">
-        <div class="col-md-4">
-          <a href="#">
-          <img id="profile-pic" class="rounded-circle img-fluid img-raised" alt="">
-        </a>
-        </div>
-        <div class="col-md-5">
-          <h4 id="user-name" class="display-4 mt-4"></h4>
-          <p id="location" class="lead"></p>
-          <div class="btn-group mt-4" role="group">
-            <button id="friends" class="btn btn-light btn-sm">Friends</button>
-          </div>
-        </div>
-        <div class="col-md-3">
-          <button class="btn btn-outline-primary float-right">
-
-          <a href="edit.html" color="white">Edit</a>
-        </button>
+  <!-- container -->
+  <!-- User Header -->
+  <div class="container mt-5" id="newcolor">
+    <div id="profile" class="row">
+      <!-- Profile Image -->
+      <div class="col-lg-4">
+        <img id="profile-pic" class="rounded-circle img-fluid img-raised" alt="">
+      </div>
+      <!-- User Name -->
+      <div class="col-lg-5">
+        <h4 id="user-name" class="display-4 mt-4"></h4>
+        <!-- Location -->
+        <img class="map-icon" src="assets/img/mapicon.png">
+        <p id="location"></p>
+        <!-- Bio -->
+        <p id="bio" class="lead"></p>
+        <div class="btn-group mt-4" role="group">
+          <button id="friends" class="btn btn-light btn-sm"></button>
         </div>
       </div>
+      <div class="col-lg-3 button-col">
+        <a class="edit-button" href="edit.html">Edit</a>
+      </div>
+    <!-- Friends -->
+    <div class="row friends-row">
 
-      <!-- Friends -->
-      <div class="row mt-5">
-        <div class="col-sm">
-          <a href="view.html">
-          <img data-followee="" class="img-fluid rounded-circle friends-pics mx-auto d-block" width="150" height="150" alt="">
+      <div class="col-sm my-2">
+        <a href="view.html">
+          <img data-followee="" class="img rounded-circle friends-pics mx-auto d-block img-raised" alt="">
         </a>
-          <p class="friend-name mt-3" style="text-align:center"> </p>
-        </div>
-        <div class="col-sm">
-          <a href="view.html">
-          <img data-followee="" class="img-fluid rounded-circle friends-pics mx-auto d-block" width="150" height="150" alt="">
+        <p class="friend-name mt-3" style="text-align:center"> </p>
+      </div>
+      <div class="col-sm my-2">
+        <a href="view.html">
+          <img data-followee="" class="img rounded-circle friends-pics mx-auto d-block img-raised" alt="">
         </a>
-          <p class="friend-name mt-3" style="text-align:center"> </p>
-        </div>
-        <div class="col-sm">
-          <a href="view.html">
-          <img data-followee="" class="img-fluid rounded-circle friends-pics mx-auto d-block" width="150" height="150" alt="">
+        <p class="friend-name mt-3" style="text-align:center"> </p>
+      </div>
+      <div class="col-sm my-2">
+        <a href="view.html">
+          <img data-followee="" class="img rounded-circle friends-pics mx-auto d-block img-raised" alt="">
         </a>
-          <p class="friend-name mt-3" style="text-align:center"> </p>
-        </div>
-        <div class="col-sm">
-          <a href="view.html">
-          <img data-followee="" class="img-fluid rounded-circle friends-pics mx-auto d-block" width="150" height="150" alt="">
+        <p class="friend-name mt-3" style="text-align:center"> </p>
+      </div>
+      <div class="col-sm my-2">
+        <a href="view.html">
+          <img data-followee="" class="img rounded-circle friends-pics mx-auto d-block img-raised" alt="">
         </a>
           <p class="friend-name mt-3" style="text-align:center"> </p>
         </div>
@@ -125,17 +113,16 @@
         </div>
       </div>
 
-
-      <!-- Media -->
-      <div class="row">
-        <div class="col-lg-12">
-          <h5 class="display-5 mt-3"></h5>
-          <div class="row user-media">
-          </div>
+    <!-- Media -->
+    <div class="row">
+      <div class="col-lg-12">
+        <h5 class="display-5 mt-3"></h5>
+        <div class="row user-media">
         </div>
       </div>
     </div>
-    <!-- /.container -->
+  </div>
+  <!-- /.container -->
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -156,8 +143,6 @@
     <script src="assets/js/plugins/bootstrap-datepicker.js" type="text/javascript"></script>
     <!-- Control Center for Now Ui Kit: parallax effects, scripts for the example pages etc -->
     <script src="assets/js/now-ui-kit.js?v=1.1.0" type="text/javascript"></script>
-
   </body>
-
 
 </html>

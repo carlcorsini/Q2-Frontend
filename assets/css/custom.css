@@ -1,3 +1,65 @@
+.navbar-logo {
+  width: 20px;
+  height: 20px;
+}
+
+#save-button {
+  margin-left: 45%;
+}
+
+/* User Header 
+--------------------- */
+
+#profile-pic {
+  height: 300px;
+  width: 300px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.map-icon {
+  width: 20px;
+  float: left;
+}
+
+.map-icon-edit {
+  width: 15px;
+  height: 15px;
+  float: left;
+}
+
+.edit-button {
+  border-width: 2px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 0px;
+  border: none;
+  border-radius: 0.1875rem;
+  padding: 17px 21px;
+  cursor: pointer;
+  float: right;
+  background: #f96332;
+  color: #ffffff;
+}
+
+/* Friends Section
+--------------------- */
+
+.friends-row {
+  margin-right: 0;
+  margin-left: 0;
+  margin-top: 50px;
+  margin-bottom: 30px;
+}
+
+.friends-pics {
+  height: 125px;
+  width: 126px;
+  object-fit: cover;
+  object-position: center;
+  border: solid 2px #f96332;
+}
+
 .friend-name {
   display: none;
 }
@@ -9,4 +71,112 @@
 .logo2 {
   width: 40px;
   height: 35px
+}
+=======
+/* Media Queries
+when screen device gets smaller,
+the User Header section will
+become centered
+--------------------- */
+
+@media (max-width: 1024px) {
+  #save-button {
+    margin-left: 43%;
+  }
+  #profile-pic {
+    height: 200px;
+    width: 200px;
+    object-fit: cover;
+    object-position: center;
+  }
+  #user-name {
+    font-size: 32px;
+  }
+}
+
+@media (max-width: 950px) {
+  #profile {
+    text-align: center;
+  }
+  .map-icon {
+    width: 30px;
+    float: none;
+  }
+  .edit-button {
+    float: none;
+    padding: 7px 23px;
+    margin-top: 20px;
+  }
+  .button-col {
+    margin-top: 20px;
+  }
+  #save-button {
+    margin-left: 40%;
+  }
+  .map-icon-edit {
+    width: 30px;
+    height: 30px;
+    float: none;
+  }
+  .friends-pics {
+    height: 93px;
+    width: 93px;
+    object-fit: cover;
+    object-position: center;
+    border: solid 2px #f96332;
+  }
+  .update-titles {
+    text-align: center;
+  }
+  #profile-pic {
+    height: 200px;
+    width: 200px;
+    object-fit: cover;
+    object-position: center;
+  }
+  #user-name {
+    font-size: 32px;
+  }
+}
+
+@media (max-width: 750px) {
+  #save-button {
+    margin-left: 26%;
+  }
+}
+
+@media (max-width: 414px) {
+  #save-button {
+    margin-left: 29%;
+  }
+}
+
+@media (max-width: 375px) {
+  #save-button {
+    margin-left: 20%;
+  }
+  #profile-pic {
+    height: 150px;
+    width: 150px;
+    object-fit: cover;
+    object-position: center;
+  }
+  #user-name {
+    font-size: 32px;
+  }
+}
+
+@media (max-width: 320px) {
+  #save-button {
+    margin-left: -1%;
+  }
+  #profile-pic {
+    height: 140px;
+    width: 140px;
+    object-fit: cover;
+    object-position: center;
+  }
+  #user-name {
+    font-size: 32px;
+  }
 }

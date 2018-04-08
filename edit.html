@@ -14,7 +14,6 @@
     <link href="assets/css/bootstrap.min.css" rel="stylesheet">
     <link href="assets/css/now-ui-kit.css?v=1.1.0" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="assets/css/custom.css">
-
   </head>
 
   <body>
@@ -23,40 +22,27 @@
       <div class="container">
         <img class="logo1" src="assets/img/v.svg" alt="">
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-
         </div>
         <div class="collapse navbar-collapse justify-content-end" id="example-navbar-icons">
           <ul class="navbar-nav">
-
             <div class="navbar-nav">
               <span class="sr-only">(current)</span>
-
-
               <a class="nav-item nav-link" id="sign-out-button" href="results.html"><i class="fa fa-search" aria-hidden="true"></i></a>
             </div>
-
             <li class="nav-item">
               <a class="nav-link" href="index.html"><i class="now-ui-icons users_single-02" aria-hidden="true"></i></a>
             </li>
-
-
             <li class="nav-item dropdown">
               <a href="index.html" class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown">
                 <i class="now-ui-icons ui-1_settings-gear-63" aria-hidden="true"></i>
             </a>
-
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
                 <a class="dropdown-header">Settings</a>
                 <a class="dropdown-item" href="view.html">Edit Page</a>
                 <a class="dropdown-item" href="login.html">Sign Out</a>
               </div>
             </li>
-
           </ul>
-
-
-
-
         </div>
       </div>
     </nav>
@@ -64,64 +50,73 @@
     </div>
     </div>
     </nav>
-    <!-- container -->
-    <div class="container mt-5">
-      <div id="profile" class="row">
-        <div class="col-md-4">
-          <img id="profile-pic" class="rounded-circle img-fluid" alt="">
-          <h5 class="display-5 mt-5">Change Photo</h5>
-          <div class="form-group">
-            <input type="text" class="form-control" id="update-profile-pic" placeholder="Add url here">
-          </div>
+  <!-- /.navbar -->
+
+  <!-- container -->
+  <div class="container mt-5">
+    <div id="profile" class="row">
+      <div class="col-lg-4">
+        <img id="profile-pic" class="rounded-circle img-fluid img-raised" alt="">
+      </div>
+      <div class="col-lg-8">
+        <!-- User Name -->
+        <h4 id="user-name" class="display-4 mt-4"></h4>
+        <!-- Change Profile Photo -->
+        <h6 class="display-5 mt-4">Change Photo</h6>
+        <div class="form-group">
+          <input type="text" class="form-control" id="update-profile-pic" placeholder="Add url here">
         </div>
-        <div class="col-md-5">
-          <h4 id="user-name" class="display-4 mt-4"></h4>
-          <h5 class="display-5 mt-5"></h5>
-          <div class="form-group">
-            <input type="text" class="form-control" id="update-location" placeholder="Change location">
-          </div>
-          <div class="col-md-5">
-          </div>
+        <!-- Change Location -->
+        <div class="form-group">
+          <img class="map-icon-edit" width="15px" height="15px" src="assets/img/mapicon.png">
+          <h6 class="display-5 mt-4">Change Location</h6>
+          <input type="text" class="form-control" id="update-location" placeholder="Change location">
         </div>
-        <div class="col-md-3">
-          <a href="index.html"><button id="save-button" type="button" class="btn btn-outline-success float-right">Save</button></a>
+      </div>
+    </div>
+
+    <!-- Bio -->
+    <div class="row mt-4">
+      <div class="col-lg-12">
+        <h6 class="display-5 mt-3 update-titles">Change Bio</h6>
+        <div class="form-group">
+          <textarea class="form-control" id="bio-form" rows="3" placeholder="Update here..."></textarea>
         </div>
       </div>
 
-      <!-- Bio -->
-      <div class="row">
-        <div class="col-lg-12">
-          <h5 class="display-5 mt-3">Bio</h5>
-          <div class="form-group">
-            <textarea class="form-control" id="bio-form" rows="3" placeholder="Update here..."></textarea>
-          </div>
+    <!-- Save Button for Text Area Updates -->
+    <div class="row">
+      <button id="save-button" type="button" class="btn btn-outline-success">
+        <a href="index.html"></a>Save Content Updates</button>
+    </div>
+
+    <!-- Media -->
+    <div class="row">
+      <div class="col-lg-12">
+        <h6 class="display-5 mt-3 update-titles">Change Media</h6>
+        <div class="form-group">
+          <input type="text" class="form-control" id="upload-image" placeholder="Add image url here">
+          <input type="text" class="form-control" id="upload-video" placeholder="Add video url here">
+          <input type="text" class="form-control" id="upload-media-title" placeholder="Image Title">
+          <input type="text" class="form-control" id="upload-media-description" placeholder="Image Description">
         </div>
       </div>
 
-      <!-- Media -->
-      <div class="row">
-        <div class="col-lg-12">
-          <h5 class="display-5 mt-3">Media</h5>
-          <div class="form-group">
-            <input type="text" class="form-control" id="upload-image" placeholder="Add image url here">
-            <input type="text" class="form-control" id="upload-video" placeholder="Add video url here">
-            <input type="text" class="form-control" id="upload-media-title" placeholder="Image Title">
-            <input type="text" class="form-control" id="upload-media-description" placeholder="Image Description">
-          </div>
-        </div>
-      </div>
+    <!-- Save Button for Text Area Updates -->
+    <div class="row">
+      <button id="save-media-button" type="button" class="btn btn-outline-success">
+        <a href="index.html"></a>Save Media Updates</button>
+    </div>
 
-      <!-- Preview Existing Media -->
-      <div class="row mb-5">
-        <div class="col-lg-12">
-          <h5 class="display-5 mt-3">Preview Media</h5>
-          <div class="row user-media">
-          </div>
+    <!-- Preview Existing Media -->
+    <div class="row mb-5">
+      <div class="col-lg-12">
+        <h6 class="display-5 mt-3 update-titles">Preview Media</h6>
+        <div class="row user-media">
         </div>
       </div>
     </div>
     <!-- /.container -->
-
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

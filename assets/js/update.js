@@ -1,6 +1,4 @@
 baseURL = 'http://localhost:3000'
-
-
 loggedIn = JSON.parse(localStorage.getItem('logged-in'))
 id = JSON.parse(localStorage.getItem('user-id'))
 saveButton = document.querySelector('#save-button')
@@ -10,6 +8,8 @@ updateInterests = document.querySelector('#interest-update')
 updateProfilePic = document.querySelector('#update-profile-pic')
 userName = document.querySelector('#user-name')
 profPic = document.querySelector('#profile-pic')
+saveMediaButton = document.querySelector('#save-media-button')
+
 // ===============================================
 // Fill in form data
 // ===============================================
@@ -32,17 +32,24 @@ saveButton.addEventListener('click', (event) => {
   let updateProfilePic = document.querySelector('#update-profile-pic').value
   let mediaUrl = document.querySelector('#upload-image').value
   let videoUrl = document.querySelector('#upload-video').value
-  let uploadMediaTitle = document.querySelector('#upload-media-title').value
-  let uploadMediaDescription = document.querySelector('#upload-media-description').value
 
   axios.put(`${baseURL}/vibe/${id}`, {
     bio: bioForm,
     profile_pic: updateProfilePic
-  }).then(response => {})
-  if (mediaUrl.length && videoUrl.length) window.location.replace('index.html')
+  }).then(response => {
+    if (mediaUrl.length < 1 && videoUrl.length < 1) window.location.replace('index.html')
+  })
+})
 
+// ===============================================
+// Save button for media
+// ===============================================
 
-
+saveMediaButton.addEventListener('click', (event) => {
+  let mediaUrl = document.querySelector('#upload-image').value
+  let videoUrl = document.querySelector('#upload-video').value
+  let uploadMediaTitle = document.querySelector('#upload-media-title').value
+  let uploadMediaDescription = document.querySelector('#upload-media-description').value
   if (videoUrl.length < 1) {
     axios.post(`${baseURL}/vibe/media/${id}`, {
       url: mediaUrl,
