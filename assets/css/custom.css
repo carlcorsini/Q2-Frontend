@@ -17,6 +17,13 @@
   object-position: center;
 }
 
+iframe {
+  height: 210px;
+  width: 350px;
+  /* object-fit: cover; */
+  /* object-position: center; */
+}
+
 .map-icon {
   width: 20px;
   float: left;
