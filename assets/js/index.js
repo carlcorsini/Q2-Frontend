@@ -1,11 +1,7 @@
-// login/ DATE
-baseURL = https: //still-springs-97508.herokuapp.com/
+baseURL = 'http://localhost:3000'
 
 
-  // var dateControl = document.querySelector('#example-date-input');
-  // dateControl.value = '2017-06-01';
-
-  const loginForm = document.querySelector('#login-form')
+const loginForm = document.querySelector('#login-form')
 console.log(loginForm);
 const emailLogin = document.querySelector('#email-login')
 const passwordLogin = document.querySelector('#password-login')
