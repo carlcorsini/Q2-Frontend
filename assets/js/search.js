@@ -15,15 +15,27 @@ document.addEventListener("DOMContentLoaded", (event) => {
         $(resultList).append(`
 
             <li>
-              <a data-friend="${result.id}" class="result-button" href="view.html">
-                <img alt="Independence Day" src="${result.profile_pic}" />
-              </a>
+
+
+
+
+                <img class="result-button" data-friend="${result.id}" alt="Workplace" usemap="#workmap" src="${result.profile_pic}" />
+
+
+
+
               <div class="info">
                 <h2 class="title">${result.name}</h2>
                 <p class="desc" id="black">${result.location}</p>
               </div>
 
             </li>
+
+            <map name="workmap">
+              <area shape="rect" coords="34,44,270,350" alt="Computer"  href="view.html"">
+            </map>
+
+
 
               `);
       })
