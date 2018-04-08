@@ -8,6 +8,7 @@ updateInterests = document.querySelector('#interest-update')
 updateProfilePic = document.querySelector('#update-profile-pic')
 userName = document.querySelector('#user-name')
 profPic = document.querySelector('#profile-pic')
+
 // ===============================================
 // Fill in form data
 // ===============================================
