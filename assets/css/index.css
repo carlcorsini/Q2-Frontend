@@ -3,7 +3,7 @@
 }
 
 h1 {
-  color: white;
+  color: black;
 }
 
 p {
@@ -110,9 +110,9 @@ width: 36px;
   color: black;
 }
 
-.logo {
-  height: 35px;
-  width:44px;
+.logo1 {
+  width: 40px;
+  height: 35px
 }
 
 
