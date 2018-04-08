@@ -64,6 +64,15 @@
   display: none;
 }
 
+.logo1 {
+  width: 40px;
+  height: 35px
+}
+.logo2 {
+  width: 40px;
+  height: 35px
+}
+=======
 /* Media Queries
 when screen device gets smaller,
 the User Header section will
