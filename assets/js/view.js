@@ -1,9 +1,4 @@
-if (process.env.NODE_ENV === 'production') {
-  baseURL = 'https://still-springs-97508.herokuapp.com'
-} else {
-  baseURL = 'https://localhost:3000'
-}
-
+baseURL = 'http://localhost:3000'
 query = window.location.search
 email = query.replace('?email=', '').replace('%40', '@').split('&').shift()
 password = query.split('&').pop().replace('password=', '')
@@ -118,7 +113,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
       console.log('hey');
 
       friendsName[idx].style.display = 'block';
-      setTimeout(function() {
+      setTimeout(function () {
         friendsName[idx].style.display = 'none';
       }, 2000);
     }, false);
