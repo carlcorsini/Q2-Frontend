@@ -2,20 +2,20 @@ baseURL = 'http://localhost:3000'
 query = window.location.search
 email = query.replace('?email=', '').replace('%40', '@').split('&').shift()
 password = query.split('&').pop().replace('password=', '')
-var stashedVariable
+var userId
 loggedIn = JSON.parse(localStorage.getItem('logged-in'))
 friend = JSON.parse(localStorage.getItem('friend-id'))
 userId = JSON.parse(localStorage.getItem('user-id'))
 
 document.addEventListener("DOMContentLoaded", (event) => {
-  stashedVariable = friend
+  userId = friend
   const userName = document.querySelector('#user-name')
   const profPic = document.querySelector('#profile-pic')
   const location = document.querySelector('#location')
   const friends = document.querySelector('#friends')
   const bio = document.querySelector('#bio')
   const interests = document.querySelector('#interests')
-  const images = document.querySelectorAll('.card-img-top')
+  const media = document.querySelectorAll('.card-img-top')
   const imageTitle = document.querySelectorAll('.card-title')
   const imageText = document.querySelectorAll('.card-text')
   const friendsPics = document.querySelectorAll('.friends-pics')
@@ -25,9 +25,9 @@ document.addEventListener("DOMContentLoaded", (event) => {
   // GET user data
   // ===============================================
 
-  axios.get(`${baseURL}/vibe/${stashedVariable}`)
+  axios.get(`${baseURL}/vibe/${userId}`)
     .then(response => {
-      axios.get(`${baseURL}/vibe/friends/${stashedVariable}`).then(response2 => {
+      axios.get(`${baseURL}/vibe/friends/${userId}`).then(response2 => {
         userName.innerHTML = `${response.data.result[0].name}`
         profPic.src = `${response.data.result[0].profile_pic}`
         location.innerHTML = `${response.data.result[0].location}`
@@ -37,13 +37,13 @@ document.addEventListener("DOMContentLoaded", (event) => {
     })
 
   // ===============================================
-  // GET images for user
+  // GET media for user
   // ===============================================
 
-  axios.get(`${baseURL}/vibe/images/${stashedVariable}`)
+  axios.get(`${baseURL}/vibe/media/${userId}`)
     .then(response => {
       let imageArray = response.data.result
-      images.forEach((a, idx) => {
+      media.forEach((a, idx) => {
         if (imageArray[idx] !== undefined)
           a.src = imageArray[idx].url
 
@@ -70,15 +70,15 @@ document.addEventListener("DOMContentLoaded", (event) => {
   // GET user friends
   // ===============================================
 
-  axios.get(`${baseURL}/vibe/friends/${stashedVariable}`).then(response => {
+  axios.get(`${baseURL}/vibe/friends/${userId}`).then(response => {
     let followee = response.data.result
     let friendsPicsArray = []
     let friendsIdArray = []
     let friendNameArray = []
     followee.forEach(a => {
-      axios.get(`${baseURL}/vibe/${a.followee_id}`).then(response => {
+      axios.get(`${baseURL}/vibe/${a.follower_id}`).then(response => {
         friendsPicsArray.push(response.data.result[0].profile_pic)
-        friendsIdArray.push(a.followee_id)
+        friendsIdArray.push(a.follower_id)
         friendNameArray.push(response.data.result[0].name)
         friendsPics.forEach((b, idx) => {
           if (friendsPicsArray[idx] !== undefined) {
@@ -104,14 +104,10 @@ document.addEventListener("DOMContentLoaded", (event) => {
   // ===============================================
 
   friendPics = document.querySelectorAll('.friends-pics')
-  console.log('this is the friends pic stuff === ', friendsPics);
   friendsName = document.querySelectorAll('.friend-name')
 
   friendPics.forEach((a, idx) => {
-    console.log(idx);
     a.addEventListener('mouseover', (event) => {
-      console.log('hey');
-
       friendsName[idx].style.display = 'block';
       setTimeout(function () {
         friendsName[idx].style.display = 'none';
@@ -135,15 +131,13 @@ document.addEventListener("DOMContentLoaded", (event) => {
   // GET media for user
   // ===============================================
 
-  axios.get(`${baseURL}/vibe/images/${stashedVariable}`)
+  axios.get(`${baseURL}/vibe/media/${userId}`)
     .then(response => {
       let imageArray = response.data.result
       let userMedia = document.querySelector('.user-media')
 
       imageArray.reverse()
       imageArray.forEach(image => {
-        console.log(image.url)
-        console.log(image.type)
         if (image.type === 'video') {
           $(userMedia).append(`
           <div class="col-md-6 col-lg-4">
@@ -171,19 +165,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
         }
       })
 
-      imageTitle.forEach((a, idx) => {
-        if (imageArray[idx] !== undefined) {
-          a.innerHTML = imageArray[idx].title
-        } else
-          a.innerHTML = 'placeholder'
-      })
-      imageText.forEach((a, idx) => {
-        if (imageArray[idx] !== undefined)
-          a.innerHTML = imageArray[idx].description
-
-        else
-          a.innerHTML = 'placeholder'
-      })
     })
 
   // ===============================================
@@ -200,6 +181,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
         window.location.replace('view.html')
       })
   })
+
+
 
   // ===============================================
   // Signout button
