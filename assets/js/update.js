@@ -1,4 +1,5 @@
 baseURL = 'http://localhost:3000'
+
 loggedIn = JSON.parse(localStorage.getItem('logged-in'))
 id = JSON.parse(localStorage.getItem('user-id'))
 saveButton = document.querySelector('#save-button')
