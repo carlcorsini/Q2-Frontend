@@ -1,8 +1,6 @@
 baseURL = 'http://localhost:3000'
 
-
 const loginForm = document.querySelector('#login-form')
-console.log(loginForm);
 const emailLogin = document.querySelector('#email-login')
 const passwordLogin = document.querySelector('#password-login')
 const createButton = document.querySelector('#create-button')
@@ -10,10 +8,8 @@ const createButton = document.querySelector('#create-button')
 
 loginForm.addEventListener('submit', (event) => {
   preventDefault()
-  console.log(emailLogin);
   axios.get(`${baseURL}/vibe/`).then(response => {
     let users = response.data.result
-    console.log(users);
   })
 })
 
@@ -23,10 +19,6 @@ createButton.addEventListener('click', (event) => {
   const createEmail = document.querySelector('#create-email').value
   const createPassword = document.querySelector('#create-password').value
   const name = createFirstName + ' ' + createLastName
-  console.log(typeof name);
-  // localStorage.setItem('user-id', JSON.stringify())
-  // localStorage.setItem('logged-in', JSON.stringify('yes'))
-
   axios.post(`${baseURL}/vibe/profile`, {
     name,
     createEmail,

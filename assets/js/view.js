@@ -155,7 +155,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
               </div>
             </div>
           </div>
-        `);
+        `)
         } else {
           $(userMedia).append(`
           <div class="col-md-6 col-lg-4">
@@ -170,7 +170,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
         `);
         }
       })
-
     })
 
   // ===============================================
