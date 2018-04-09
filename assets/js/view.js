@@ -1,4 +1,5 @@
 baseURL = 'http://localhost:3000'
+
 query = window.location.search
 email = query.replace('?email=', '').replace('%40', '@').split('&').shift()
 password = query.split('&').pop().replace('password=', '')
@@ -108,10 +109,10 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
   friendPics.forEach((a, idx) => {
     a.addEventListener('mouseover', (event) => {
-      friendsName[idx].style.display = 'block';
+      friendsName[idx].style.opacity = '100';
       setTimeout(function () {
-        friendsName[idx].style.display = 'none';
-      }, 2000);
+        friendsName[idx].style.opacity = '0';
+      }, 2500);
     }, false);
   })
 
@@ -181,8 +182,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
         window.location.replace('view.html')
       })
   })
-
-
 
   // ===============================================
   // Signout button
