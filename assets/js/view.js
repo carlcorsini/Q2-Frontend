@@ -23,6 +23,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
   const friendName = document.querySelectorAll('.friend-name')
   const followButton = document.querySelector('#follow-button')
 
+
+
   // ===============================================
   // GET user data
   // ===============================================
@@ -112,14 +114,20 @@ document.addEventListener("DOMContentLoaded", (event) => {
   friendPics = document.querySelectorAll('.friends-pics')
   friendsName = document.querySelectorAll('.friend-name')
 
-  friendPics.forEach((a, idx) => {
+  friendPic.forEach((a, idx) => {
     a.addEventListener('mouseover', (event) => {
-      $(friendsName[idx]).fadeIn(500).delay(2000).fadeOut(200)
-      // setTimeout(function() {
-      //   friendsName[idx].style.display = 'none';
-      // }, 2000);
-    })
+      friendsName[idx].style.opacity = '100'
+      setTimeout(function() {
+        friendsName[idx].style.opacity = '0'
+      }, 2500);
+    }, false);
   })
+
+  // friendPics.forEach((a, idx) => {
+  //   a.addEventListener('mouseover', (event) => {
+  //     $(friendsName[idx]).fadeIn(500).delay(2000).fadeOut(200)
+  //   })
+  // })
 
 
   // ===============================================
