@@ -114,7 +114,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
   friendPics = document.querySelectorAll('.friends-pics')
   friendsName = document.querySelectorAll('.friend-name')
 
-  friendPic.forEach((a, idx) => {
+  friendPics.forEach((a, idx) => {
     a.addEventListener('mouseover', (event) => {
       friendsName[idx].style.opacity = '100'
       setTimeout(function() {

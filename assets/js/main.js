@@ -40,34 +40,31 @@ document.addEventListener("DOMContentLoaded", (event) => {
     // ===============================================
     // GET user data
     // ===============================================
-    getUserData = () => {
-      axios.get(`${baseURL}/vibe/${userId}`)
-        .then(response => {
-          axios.get(`${baseURL}/vibe/friends/${userId}`).then(response2 => {
-            userName.innerHTML = `${response.data.result[0].name}`
-            profPic.src = `${response.data.result[0].profile_pic}`
-            location.innerHTML = `${response.data.result[0].location}`
-            friends.innerHTML = `Followers ${response2.data.result.length}`
-            bio.innerHTML = `${response.data.result[0].bio}`
-          })
-        })
-    }
 
-    getUserData()
+    axios.get(`${baseURL}/vibe/${userId}`)
+      .then(response => {
+        axios.get(`${baseURL}/vibe/friends/${userId}`).then(response2 => {
+          userName.innerHTML = `${response.data.result[0].name}`
+          profPic.src = `${response.data.result[0].profile_pic}`
+          location.innerHTML = `${response.data.result[0].location}`
+          friends.innerHTML = `Followers ${response2.data.result.length}`
+          bio.innerHTML = `${response.data.result[0].bio}`
+        })
+      })
 
     // ===============================================
     // GET media for user
     // ===============================================
-    getUserMedia = (userId) => {
-      axios.get(`${baseURL}/vibe/media/${userId}`)
-        .then(response => {
-          let mediaArray = response.data.result
-          let userMedia = document.querySelector('.user-media')
 
-          mediaArray.reverse()
-          mediaArray.forEach(media => {
-            if (media.type === 'video') {
-              $(userMedia).append(`
+    axios.get(`${baseURL}/vibe/media/${userId}`)
+      .then(response => {
+        let mediaArray = response.data.result
+        let userMedia = document.querySelector('.user-media')
+
+        mediaArray.reverse()
+        mediaArray.forEach(media => {
+          if (media.type === 'video') {
+            $(userMedia).append(`
           <div class="col-md-6 col-lg-4">
             <div class="card mb-3">
               <div class="embed-responsive embed-responsive-4by3">
@@ -80,8 +77,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
             </div>
           </div>
         `);
-            } else {
-              $(userMedia).append(`
+          } else {
+            $(userMedia).append(`
           <div class="col-md-6 col-lg-4">
             <div class="card mb-3">
               <img width="360" height="215" class="card-img-top" src="${media.url}" alt="media">
@@ -92,48 +89,43 @@ document.addEventListener("DOMContentLoaded", (event) => {
             </div>
           </div>
         `);
-            }
-          })
+          }
         })
-    }
-
-    getUserMedia(userId)
+      })
 
     // ===============================================
     // GET user friends
     // ===============================================
-    getFriends = () => {
-      axios.get(`${baseURL}/vibe/friends/${userId}`).then(response => {
-        let followee = response.data.result
-        let friendsPicsArray = []
-        let friendsIdArray = []
-        let friendNameArray = []
-        followee.forEach(a => {
-          axios.get(`${baseURL}/vibe/${a.follower_id}`).then(response => {
-            friendsPicsArray.push(response.data.result[0].profile_pic)
-            friendsIdArray.push(a.follower_id)
-            friendNameArray.push(response.data.result[0].name)
-            friendsPics.forEach((b, idx) => {
-              if (friendsPicsArray[idx] !== undefined) {
-                b.src = friendsPicsArray[idx]
-                b.dataset.followee = friendsIdArray[idx]
-              } else {
-                b.src = ''
-              }
-            })
-            friendName.forEach((b, idx) => {
-              if (friendsPicsArray[idx] !== undefined) {
-                b.innerHTML = friendNameArray[idx]
-              } else {
-                b.src = ''
-              }
-            })
+
+    axios.get(`${baseURL}/vibe/friends/${userId}`).then(response => {
+      let followee = response.data.result
+      let friendsPicsArray = []
+      let friendsIdArray = []
+      let friendNameArray = []
+      followee.forEach(a => {
+        axios.get(`${baseURL}/vibe/${a.follower_id}`).then(response => {
+          friendsPicsArray.push(response.data.result[0].profile_pic)
+          friendsIdArray.push(a.follower_id)
+          friendNameArray.push(response.data.result[0].name)
+          friendsPics.forEach((b, idx) => {
+            if (friendsPicsArray[idx] !== undefined) {
+              b.src = friendsPicsArray[idx]
+              b.dataset.followee = friendsIdArray[idx]
+            } else {
+              b.src = ''
+            }
+          })
+          friendName.forEach((b, idx) => {
+            if (friendsPicsArray[idx] !== undefined) {
+              b.innerHTML = friendNameArray[idx]
+            } else {
+              b.src = ''
+            }
           })
         })
       })
-    }
+    })
 
-    getFriends()
     // ===============================================
     // Hover over friend name
     // ===============================================
@@ -179,7 +171,3 @@ document.addEventListener("DOMContentLoaded", (event) => {
     })
   })
 });
-
-module.exports = {
-  getUserMedia
-}
