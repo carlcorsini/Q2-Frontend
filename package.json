@@ -1,0 +1,28 @@
+{
+  "name": "Q2-Frontend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "NODE_ENV=test mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/carlcorsini/Q2-Frontend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/carlcorsini/Q2-Frontend/issues"
+  },
+  "homepage": "https://github.com/carlcorsini/Q2-Frontend#readme",
+  "dependencies": {
+    "chai": "^4.1.2",
+    "chai-as-promised": "^7.1.1",
+    "mochai": "^0.2.5"
+  }
+}

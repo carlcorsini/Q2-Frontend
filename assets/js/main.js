@@ -136,11 +136,17 @@ document.addEventListener("DOMContentLoaded", (event) => {
     friendPic.forEach((a, idx) => {
       a.addEventListener('mouseover', (event) => {
         friendsName[idx].style.opacity = '100'
-        setTimeout(function () {
+        setTimeout(function() {
           friendsName[idx].style.opacity = '0'
         }, 2500);
       }, false);
     })
+
+    // friendPic.forEach((a, idx) => {
+    //   a.addEventListener('mouseover', (event) => {
+    //     $(friendsName[idx]).fadeIn(500).delay(2000).fadeOut(200)
+    //   })
+    // })
 
     // ===============================================
     // Click to view user friend's profile
