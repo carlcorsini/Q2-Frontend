@@ -1,5 +1,5 @@
-baseURL = https: //still-springs-97508.herokuapp.com/
-  query = window.location.search
+baseURL = 'http://localhost:3000'
+query = window.location.search
 email = query.replace('?email=', '').replace('%40', '@').split('&').shift()
 password = query.split('&').pop().replace('password=', '')
 var userId

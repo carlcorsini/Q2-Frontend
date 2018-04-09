@@ -1,5 +1,5 @@
-baseURL = https: //still-springs-97508.herokuapp.com/
-  loggedIn = JSON.parse(localStorage.getItem('logged-in'))
+baseURL = 'http://localhost:3000'
+loggedIn = JSON.parse(localStorage.getItem('logged-in'))
 id = JSON.parse(localStorage.getItem('user-id'))
 saveButton = document.querySelector('#save-button')
 updateLocation = document.querySelector('#update-location')

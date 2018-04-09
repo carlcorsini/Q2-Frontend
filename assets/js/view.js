@@ -21,6 +21,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
   const imageText = document.querySelectorAll('.card-text')
   const friendsPics = document.querySelectorAll('.friends-pics')
   const friendName = document.querySelectorAll('.friend-name')
+  const followButton = document.querySelector('#follow-button')
 
   // ===============================================
   // GET user data
@@ -77,6 +78,10 @@ document.addEventListener("DOMContentLoaded", (event) => {
     let friendsIdArray = []
     let friendNameArray = []
     followee.forEach(a => {
+      console.log(a.follower_id);
+      if (a.follower_id === friend) {
+        followButton.style.display = 'none'
+      }
       axios.get(`${baseURL}/vibe/${a.follower_id}`).then(response => {
         friendsPicsArray.push(response.data.result[0].profile_pic)
         friendsIdArray.push(a.follower_id)
@@ -109,11 +114,11 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
   friendPics.forEach((a, idx) => {
     a.addEventListener('mouseover', (event) => {
-      friendsName[idx].style.display = 'block';
-      setTimeout(function() {
-        friendsName[idx].style.display = 'none';
-      }, 2000);
-    }, false);
+      $(friendsName[idx]).fadeIn(500).delay(2000).fadeOut(200)
+      // setTimeout(function() {
+      //   friendsName[idx].style.display = 'none';
+      // }, 2000);
+    })
   })
 
 
@@ -172,7 +177,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
   // Follow button for friends
   // ===============================================
 
-  const followButton = document.querySelector('#follow-button')
   followButton.addEventListener('click', (event) => {
     axios.post(`${baseURL}/vibe/friends/`, {
         friend,
