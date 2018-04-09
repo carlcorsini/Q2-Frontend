@@ -1,6 +1,7 @@
 # The Vibe
 The Vibe is a social networking platform that allows users to share media with their friends and family. This convenient way to easily show each users creativity by using their profile as a canvas to the world. The Vibe was designed by millennials using the latest trends in social media usage.
 
+[](https://imgur.com/a/wT0zc)
 
 ## Here are some of the standard features that are included in the project:
 * **User Profiles -** displays your profile picture, name, city and bio
@@ -45,6 +46,7 @@ Node.js - Backend
 PostgreSQL - Database used
 Bootstrap 4 - The web framework used
 
+[](https://imgur.com/a/idxtU)
 
 ## Authors
 Carl Corsini 
