@@ -109,10 +109,17 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
   friendPics.forEach((a, idx) => {
     a.addEventListener('mouseover', (event) => {
+<<<<<<< HEAD
       friendsName[idx].style.display = 'block';
       setTimeout(function() {
         friendsName[idx].style.display = 'none';
       }, 2000);
+=======
+      friendsName[idx].style.opacity = '100';
+      setTimeout(function () {
+        friendsName[idx].style.opacity = '0';
+      }, 2500);
+>>>>>>> 9db80f9c685142322ef30e1dd222af2ae868a3bf
     }, false);
   })
 

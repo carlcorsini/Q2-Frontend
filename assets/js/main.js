@@ -1,5 +1,11 @@
+<<<<<<< HEAD
 baseURL = https: //still-springs-97508.herokuapp.com/
   query = window.location.search
+=======
+baseURL = 'http://localhost:3000'
+
+query = window.location.search
+>>>>>>> 9db80f9c685142322ef30e1dd222af2ae868a3bf
 email = query.replace('?email=', '').replace('%40', '@').split('&').shift()
 password = query.split('&').pop().replace('password=', '')
 var userId
@@ -66,7 +72,9 @@ document.addEventListener("DOMContentLoaded", (event) => {
             $(userMedia).append(`
           <div class="col-md-6 col-lg-4">
             <div class="card mb-3">
-              <iframe width="360" height="215" src="${media.url.replace(/watch\?v=/, 'embed/')}" frameborder="0"  allowfullscreen></iframe>
+              <div class="embed-responsive embed-responsive-4by3">
+                <iframe class="embed-responsive-item" src="${media.url.replace(/watch\?v=/, 'embed/')}"></iframe>
+              </div>
               <div class="card-body">
                 <h4 class="card-title">${media.title}</h4>
                 <p class="card-text">${media.description}</p>
@@ -132,10 +140,17 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
     friendPic.forEach((a, idx) => {
       a.addEventListener('mouseover', (event) => {
+<<<<<<< HEAD
         friendsName[idx].style.display = 'block'
         setTimeout(function() {
           friendsName[idx].style.display = 'none'
         }, 2000);
+=======
+        friendsName[idx].style.opacity = '100'
+        setTimeout(function () {
+          friendsName[idx].style.opacity = '0'
+        }, 2500);
+>>>>>>> 9db80f9c685142322ef30e1dd222af2ae868a3bf
       }, false);
     })
 

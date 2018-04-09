@@ -1,5 +1,11 @@
+<<<<<<< HEAD
 baseURL = https: //still-springs-97508.herokuapp.com/
   loggedIn = JSON.parse(localStorage.getItem('logged-in'))
+=======
+baseURL = 'http://localhost:3000'
+
+loggedIn = JSON.parse(localStorage.getItem('logged-in'))
+>>>>>>> 9db80f9c685142322ef30e1dd222af2ae868a3bf
 id = JSON.parse(localStorage.getItem('user-id'))
 saveButton = document.querySelector('#save-button')
 updateLocation = document.querySelector('#update-location')
@@ -88,7 +94,9 @@ axios.get(`${baseURL}/vibe/media/${id}`)
         $(userMedia).append(`
           <div class="col-md-6 col-lg-4">
             <div class="card mb-3">
-              <iframe width="350" height="205" src="${media.url.replace(/watch\?v=/, 'embed/')}" frameborder="0"  allowfullscreen></iframe>
+              <div class="embed-responsive embed-responsive-4by3">
+                <iframe class="embed-responsive-item" src="${media.url.replace(/watch\?v=/, 'embed/')}"></iframe>
+              </div>
               <div class="card-body">
                 <h4 class="card-title">${media.title}</h4>
                 <p class="card-text">${media.description}</p>
