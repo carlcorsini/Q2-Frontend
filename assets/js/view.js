@@ -1,15 +1,16 @@
-baseURL = 'http://localhost:3000'
+baseURL = 'https://still-springs-97508.herokuapp.com'
 
 query = window.location.search
 email = query.replace('?email=', '').replace('%40', '@').split('&').shift()
 password = query.split('&').pop().replace('password=', '')
-var userId
+// var userId
 loggedIn = JSON.parse(localStorage.getItem('logged-in'))
 friend = JSON.parse(localStorage.getItem('friend-id'))
+console.log(friend);
 userId = JSON.parse(localStorage.getItem('user-id'))
+console.log(userId);
 
 document.addEventListener("DOMContentLoaded", (event) => {
-  userId = friend
   const userName = document.querySelector('#user-name')
   const profPic = document.querySelector('#profile-pic')
   const location = document.querySelector('#location')
@@ -29,9 +30,9 @@ document.addEventListener("DOMContentLoaded", (event) => {
   // GET user data
   // ===============================================
 
-  axios.get(`${baseURL}/vibe/${userId}`)
+  axios.get(`${baseURL}/vibe/${friend}`)
     .then(response => {
-      axios.get(`${baseURL}/vibe/friends/${userId}`).then(response2 => {
+      axios.get(`${baseURL}/vibe/friends/${friend}`).then(response2 => {
         userName.innerHTML = `${response.data.result[0].name}`
         profPic.src = `${response.data.result[0].profile_pic}`
         location.innerHTML = `${response.data.result[0].location}`
@@ -44,7 +45,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
   // GET media for user
   // ===============================================
 
-  axios.get(`${baseURL}/vibe/media/${userId}`)
+  axios.get(`${baseURL}/vibe/media/${friend}`)
     .then(response => {
       let imageArray = response.data.result
       media.forEach((a, idx) => {
@@ -74,19 +75,20 @@ document.addEventListener("DOMContentLoaded", (event) => {
   // GET user friends
   // ===============================================
 
-  axios.get(`${baseURL}/vibe/friends/${userId}`).then(response => {
+  axios.get(`${baseURL}/vibe/friends/${friend}`).then(response => {
     let followee = response.data.result
+    console.log(followee);
     let friendsPicsArray = []
     let friendsIdArray = []
     let friendNameArray = []
     followee.forEach(a => {
-      console.log(a.follower_id);
-      if (a.follower_id === friend) {
+      if (a.follower_id === userId) {
         followButton.style.display = 'none'
       }
       axios.get(`${baseURL}/vibe/${a.follower_id}`).then(response => {
         friendsPicsArray.push(response.data.result[0].profile_pic)
         friendsIdArray.push(a.follower_id)
+        console.log(friendsIdArray);
         friendNameArray.push(response.data.result[0].name)
         friendsPics.forEach((b, idx) => {
           if (friendsPicsArray[idx] !== undefined) {
@@ -145,7 +147,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
   // GET media for user
   // ===============================================
 
-  axios.get(`${baseURL}/vibe/media/${userId}`)
+  axios.get(`${baseURL}/vibe/media/${friend}`)
     .then(response => {
       let imageArray = response.data.result
       let userMedia = document.querySelector('.user-media')
@@ -185,9 +187,10 @@ document.addEventListener("DOMContentLoaded", (event) => {
   // ===============================================
 
   followButton.addEventListener('click', (event) => {
+    console.log(userId);
     axios.post(`${baseURL}/vibe/friends/`, {
-        friend,
-        userId
+        userId,
+        friend
       })
       .then(result => {
         window.location.replace('view.html')
@@ -198,9 +201,9 @@ document.addEventListener("DOMContentLoaded", (event) => {
   // Signout button
   // ===============================================
 
-  const signOutButton = document.querySelector('#sign-out-button')
-  signOutButton.addEventListener('click', (event) => {
-    localStorage.setItem('logged-in', JSON.stringify('no'))
-    localStorage.setItem('user-id', JSON.stringify(''))
-  })
+  // const signOutButton = document.querySelector('#sign-out-button')
+  // signOutButton.addEventListener('click', (event) => {
+  //   localStorage.setItem('logged-in', JSON.stringify('no'))
+  //   localStorage.setItem('user-id', JSON.stringify(''))
+  // })
 });
